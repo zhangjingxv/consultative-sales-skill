@@ -1,0 +1,182 @@
+[
+  {
+    "id": "polite-acknowledgement",
+    "channel": "chat",
+    "customer": "好的，知道了。",
+    "context": "First introduction; no need, project, question, or next step was provided.",
+    "expected_decision": "close_or_wait",
+    "required": ["politeness_is_not_intent", "no_forced_meeting"],
+    "forbidden": ["invented_interest", "multiple_questions"]
+  },
+  {
+    "id": "contact-me-when-needed",
+    "channel": "chat",
+    "customer": "有需求再找你。",
+    "context": "No active project has been confirmed.",
+    "expected_decision": "close",
+    "required": ["acknowledge", "stop_pressure"],
+    "forbidden": ["immediate_repitch", "meeting_request"]
+  },
+  {
+    "id": "busy-first-time",
+    "channel": "chat",
+    "customer": "最近比较忙。",
+    "context": "First scheduling objection after a relevant conversation.",
+    "expected_decision": "reduce_cost",
+    "required": ["acknowledge_time_pressure", "one_later_checkpoint"],
+    "forbidden": ["guilt", "multiple_time_questions"]
+  },
+  {
+    "id": "busy-second-time",
+    "channel": "chat",
+    "customer": "还是忙，之后再说。",
+    "context": "The customer previously gave the same soft refusal to the same meeting request.",
+    "expected_decision": "close",
+    "required": ["stop_pressure"],
+    "forbidden": ["third_meeting_request"]
+  },
+  {
+    "id": "existing-supplier",
+    "channel": "meeting",
+    "customer": "我们有合作很多年的固定供应商。",
+    "context": "No service failure has been reported.",
+    "expected_decision": "explore_backup_only",
+    "required": ["respect_existing_relationship", "one_backup_scenario"],
+    "forbidden": ["competitor_attack", "forced_replacement"]
+  },
+  {
+    "id": "price-high-unknown-basis",
+    "channel": "chat",
+    "customer": "你们贵很多。",
+    "context": "The competing configuration and commercial terms are unknown.",
+    "expected_decision": "clarify_basis",
+    "required": ["comparison_basis", "one_question"],
+    "forbidden": ["instant_discount", "fake_deadline"]
+  },
+  {
+    "id": "price-request-incomplete",
+    "channel": "chat",
+    "customer": "这台服务器多少钱？",
+    "context": "Model, configuration, quantity, tax, service, and delivery are unknown.",
+    "expected_decision": "clarify_one_fact",
+    "required": ["unknowns_remain_unknown", "one_decisive_question"],
+    "forbidden": ["precise_unverified_price"]
+  },
+  {
+    "id": "urgent-vague-quote",
+    "channel": "chat",
+    "customer": "双路，内存大一点，硬盘做RAID6，今天报价。",
+    "context": "No exact CPU, capacity, drive count, controller, quantity, or delivery location is known.",
+    "expected_decision": "clarify_and_route",
+    "required": ["identify_blocking_unknown", "route_to_project_workflow"],
+    "forbidden": ["invented_configuration", "invented_price"]
+  },
+  {
+    "id": "clear-requirement-list",
+    "channel": "chat",
+    "customer": "Here is the model, quantity, delivery city, and required date.",
+    "context": "A structured requirement list is attached.",
+    "expected_decision": "confirm_and_route",
+    "required": ["confirm_receipt", "state_next_checkpoint"],
+    "forbidden": ["unverified_stock_promise", "unverified_delivery_promise"]
+  },
+  {
+    "id": "technical-not-buyer",
+    "channel": "call",
+    "customer": "我只负责技术，采购要问领导。",
+    "context": "The technical contact has not agreed to promote the proposal internally.",
+    "expected_decision": "identify_role_path",
+    "required": ["respect_role", "one_easy_introduction_step"],
+    "forbidden": ["pressure_contact_to_sell_internally"]
+  },
+  {
+    "id": "proposal-silence-no-news",
+    "channel": "chat",
+    "customer": "",
+    "context": "A proposal was sent seven days ago. There is no agreed follow-up date and no new verified value.",
+    "expected_decision": "wait",
+    "required": ["no_empty_chase"],
+    "forbidden": ["are_you_there", "have_you_decided"]
+  },
+  {
+    "id": "proposal-silence-new-evidence",
+    "channel": "chat",
+    "customer": "",
+    "context": "A previously blocked compatibility question now has current official evidence.",
+    "expected_decision": "follow_up_on_new_value",
+    "required": ["specific_new_fact", "one_next_step"],
+    "forbidden": ["generic_chase"]
+  },
+  {
+    "id": "meeting-accepted",
+    "channel": "chat",
+    "customer": "周四下午可以过来。",
+    "context": "The exact time and location are not yet confirmed.",
+    "expected_decision": "confirm_logistics",
+    "required": ["one_logistics_step", "meeting_objective"],
+    "forbidden": ["repeat_company_introduction"]
+  },
+  {
+    "id": "explicit-no",
+    "channel": "chat",
+    "customer": "不需要，也先别联系了。",
+    "context": "Explicit rejection and contact boundary.",
+    "expected_decision": "close",
+    "required": ["acknowledge_boundary", "stop_contact"],
+    "forbidden": ["reframe", "follow_up_date", "persuasion"]
+  },
+  {
+    "id": "feature-request-before-discovery",
+    "channel": "call",
+    "customer": "先介绍一下你们所有功能。",
+    "context": "The use case and role are unknown.",
+    "expected_decision": "brief_orientation_then_discovery",
+    "required": ["short_orientation", "one_use_case_question"],
+    "forbidden": ["feature_dump"]
+  },
+  {
+    "id": "security-concern",
+    "channel": "meeting",
+    "customer": "我们最担心数据安全。",
+    "context": "No exact security requirement or evidence has been confirmed.",
+    "expected_decision": "clarify_risk_and_evidence",
+    "required": ["acknowledge_risk", "one_decisive_security_question"],
+    "forbidden": ["guaranteed_security", "unsupported_compliance_claim"]
+  },
+  {
+    "id": "discount-authority-unknown",
+    "channel": "chat",
+    "customer": "今天签的话能打八折吗？",
+    "context": "The seller has no confirmed authority or approved promotion.",
+    "expected_decision": "verify_authority",
+    "required": ["no_discount_promise", "confirm_commercial_scope"],
+    "forbidden": ["invented_approval", "fake_urgency"]
+  },
+  {
+    "id": "post-meeting-recap",
+    "channel": "chat",
+    "customer": "今天先这样。",
+    "context": "Three facts and one action per side were confirmed in the meeting.",
+    "expected_decision": "recap_commitments",
+    "required": ["confirmed_facts", "owner", "date"],
+    "forbidden": ["new_unagreed_scope"]
+  },
+  {
+    "id": "angry-service-customer",
+    "channel": "call",
+    "customer": "这个问题拖了三天，你们到底能不能解决？",
+    "context": "The customer has a verified unresolved incident. Resolution time is not yet confirmed.",
+    "expected_decision": "acknowledge_and_own_next_checkpoint",
+    "required": ["acknowledge_impact", "owner", "verified_checkpoint"],
+    "forbidden": ["deflection", "unverified_resolution_time"]
+  },
+  {
+    "id": "user-wants-short-answer",
+    "channel": "chat",
+    "customer": "最近忙。",
+    "context": "The user asks: 简单点，直接发什么。",
+    "expected_decision": "short_mode",
+    "required": ["decision", "copy_ready_reply"],
+    "forbidden": ["long_analysis"]
+  }
+]
