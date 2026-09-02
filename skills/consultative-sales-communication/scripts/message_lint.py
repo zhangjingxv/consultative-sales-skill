@@ -6,13 +6,15 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
+from pathlib import Path
 
 
 RULES = [
     (
         "unsupported-certainty",
         "high",
-        re.compile(r"(保证|绝对|百分之百|100%|肯定没问题|一定能|完全兼容)"),
+        re.compile(r"(绝对|百分之百|100%|肯定没问题|一定能|完全兼容)"),
         "可能存在无证据的确定性承诺。",
     ),
     (
@@ -41,6 +43,15 @@ RULES = [
     ),
 ]
 
+NEGATED_GUARANTEE = re.compile(r"(不|不能|无法|暂不|没法)(先|直接|现在)?保证")
+GUARANTEE = re.compile(r"保证")
+REQUEST_CUES = re.compile(
+    r"(?:方便[^，。！？；]{0,12}(?:发|给|确认|说|回复)|能否|"
+    r"可以[^，。！？；]{0,8}(?:发|给|确认|回复)|"
+    r"请[^，。！？；]{0,12}(?:发|给|确认|回复)|"
+    r"您看[^，。！？；]{0,16}(?:吗|呢)|什么时候[^，。！？；]{0,8}(?:定|确认|回复))"
+)
+
 
 def lint(text: str) -> list[dict[str, str]]:
     findings = []
@@ -51,6 +62,15 @@ def lint(text: str) -> list[dict[str, str]]:
                 "rule": "multiple-questions",
                 "severity": "medium",
                 "message": f"包含{question_count}个问号，检查是否超过一个主要回应入口。",
+            }
+        )
+    request_count = len(REQUEST_CUES.findall(text))
+    if question_count <= 1 and request_count > 1:
+        findings.append(
+            {
+                "rule": "multiple-response-entries",
+                "severity": "medium",
+                "message": f"检测到约{request_count}个请求入口，检查是否能只保留一个主要下一步。",
             }
         )
     if len(text) > 240:
@@ -64,14 +84,34 @@ def lint(text: str) -> list[dict[str, str]]:
     for rule, severity, pattern, message in RULES:
         if pattern.search(text):
             findings.append({"rule": rule, "severity": severity, "message": message})
+    guarantee_text = NEGATED_GUARANTEE.sub("", text)
+    if GUARANTEE.search(guarantee_text):
+        findings.append(
+            {
+                "rule": "unsupported-certainty",
+                "severity": "high",
+                "message": "“保证”可能构成无证据的确定性承诺；若已有证据，也应写清适用条件。",
+            }
+        )
     return findings
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--text", required=True)
+    source = parser.add_mutually_exclusive_group()
+    source.add_argument("--text")
+    source.add_argument("--file", type=Path)
     args = parser.parse_args()
-    result = {"ok": not lint(args.text), "findings": lint(args.text)}
+    if args.text is not None:
+        content = args.text
+    elif args.file is not None:
+        content = args.file.read_text(encoding="utf-8")
+    elif not sys.stdin.isatty():
+        content = sys.stdin.read()
+    else:
+        parser.error("请提供 --text、--file，或通过标准输入传入客户可见文本")
+    findings = lint(content)
+    result = {"ok": not findings, "findings": findings}
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result["ok"] else 1
 

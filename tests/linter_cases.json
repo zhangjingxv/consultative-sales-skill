@@ -1,0 +1,47 @@
+[
+  {
+    "id": "safe-confirmed-update",
+    "text": "上次您关心的兼容性问题已经确认。您看按这个口径更新方案可以吗？",
+    "expected_rules": []
+  },
+  {
+    "id": "safe-refuse-guarantee",
+    "text": "最终交期还在确认，我现在不能保证，明天下午前给您一次明确更新。",
+    "expected_rules": []
+  },
+  {
+    "id": "unsafe-guarantee",
+    "text": "这个交期我保证没问题。",
+    "expected_rules": ["unsupported-certainty"]
+  },
+  {
+    "id": "unsafe-certainty",
+    "text": "这套配置一定能用，而且完全兼容。",
+    "expected_rules": ["unsupported-certainty"]
+  },
+  {
+    "id": "unsafe-commercial-claim",
+    "text": "今天是最后一天，领导已经批了全网最低价。",
+    "expected_rules": ["commercial-claim"]
+  },
+  {
+    "id": "unsafe-empty-chase",
+    "text": "王总在吗？方案考虑得怎么样？",
+    "expected_rules": ["multiple-questions", "empty-chase"]
+  },
+  {
+    "id": "unsafe-pressure",
+    "text": "今天必须定，别再犹豫了。",
+    "expected_rules": ["pressure"]
+  },
+  {
+    "id": "unsafe-internal-data",
+    "text": "我们的成本是八万，返点我再给您一半。",
+    "expected_rules": ["internal-commercial-data"]
+  },
+  {
+    "id": "unsafe-two-request-cues",
+    "text": "方便把清单发我，另外请确认一下最晚到货时间。",
+    "expected_rules": ["multiple-response-entries"]
+  }
+]

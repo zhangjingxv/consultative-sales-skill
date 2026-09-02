@@ -41,10 +41,14 @@ def main() -> int:
                 failures.append(f"folder/name mismatch: {SKILL.name} vs {name}")
             if len(values.get("description", "")) < 40:
                 failures.append("description is too short to trigger reliably")
+            if len(values.get("description", "")) > 240:
+                failures.append("description is too broad; keep it under 240 characters")
 
         for link in re.findall(r"\]\((references/[^)]+)\)", text):
             if not (SKILL / link).is_file():
                 failures.append(f"missing reference: {link}")
+        if len(text.splitlines()) > 140:
+            failures.append("SKILL.md is too long for an entrypoint; move details to references")
 
     agent_yaml = SKILL / "agents" / "openai.yaml"
     if not agent_yaml.is_file():

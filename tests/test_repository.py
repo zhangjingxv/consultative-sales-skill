@@ -45,6 +45,9 @@ class RepositoryTests(unittest.TestCase):
             self.assertTrue(case["expected_decision"])
             self.assertTrue(case["required"])
             self.assertTrue(case["forbidden"])
+            self.assertEqual(len(case["required"]), len(set(case["required"])))
+            self.assertEqual(len(case["forbidden"]), len(set(case["forbidden"])))
+            self.assertFalse(set(case["required"]) & set(case["forbidden"]))
 
     def test_message_linter(self) -> None:
         script = SKILL / "scripts" / "message_lint.py"
@@ -53,10 +56,11 @@ class RepositoryTests(unittest.TestCase):
         self.assertIsNotNone(spec.loader)
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
-        risky = module.lint("王总在吗？看过了吗？今天必须定，保证最低价。")
-        safe = module.lint("上次您关心的兼容性问题已经确认。您看按这个口径更新方案可以吗？")
-        self.assertGreaterEqual(len(risky), 3)
-        self.assertEqual(safe, [])
+        cases = json.loads((ROOT / "tests" / "linter_cases.json").read_text(encoding="utf-8"))
+        for case in cases:
+            with self.subTest(case=case["id"]):
+                rules = {finding["rule"] for finding in module.lint(case["text"])}
+                self.assertEqual(rules, set(case["expected_rules"]))
 
     def test_dependency_free_skill_validator(self) -> None:
         script = ROOT / "scripts" / "validate_skill.py"

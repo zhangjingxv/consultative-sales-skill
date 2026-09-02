@@ -112,6 +112,8 @@ python3 -m unittest discover -s tests -v
 
 The local release process additionally runs the official Codex `quick_validate.py` script when it is available.
 
+`tests/linter_cases.json` contains safe and unsafe near-boundary examples. They verify that the message linter catches pressure and unsupported claims without treating cautious wording such as “不能保证” as a promise. The scenario contracts in `tests/cases.json` are evaluation fixtures, not proof that every model response is correct.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). New conversation patterns should be backed by a synthetic regression case and must pass the privacy and unsupported-claim checks.
