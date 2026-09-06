@@ -22,6 +22,11 @@ def main() -> int:
         help="parent directory where the skill folder will be installed",
     )
     parser.add_argument("--force", action="store_true", help="replace an existing installation")
+    parser.add_argument(
+        "--backup-dir",
+        type=Path,
+        help="backup directory used with --force; defaults beside the skills directory",
+    )
     args = parser.parse_args()
 
     if not (SOURCE / "SKILL.md").is_file():
@@ -33,8 +38,14 @@ def main() -> int:
             parser.error(f"destination exists: {destination}; use --force to replace it")
         if destination.is_symlink() or not destination.is_dir():
             parser.error(f"refusing to replace non-directory destination: {destination}")
-        timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-        backup = destination.with_name(f"{destination.name}.backup-{timestamp}")
+        timestamp = datetime.now().strftime("%Y%m%d-%H%M%S-%f")
+        backup_root = (
+            args.backup_dir.expanduser().resolve()
+            if args.backup_dir
+            else args.skills_dir.expanduser().resolve().parent / "skill-backups"
+        )
+        backup_root.mkdir(parents=True, exist_ok=True)
+        backup = backup_root / f"{destination.name}-{timestamp}"
         if backup.exists():
             parser.error(f"backup destination already exists: {backup}")
         shutil.move(destination, backup)

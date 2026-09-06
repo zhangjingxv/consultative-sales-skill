@@ -2,6 +2,9 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import subprocess
+import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -37,7 +40,7 @@ class RepositoryTests(unittest.TestCase):
 
     def test_behavior_cases_are_well_formed(self) -> None:
         cases = json.loads((ROOT / "tests" / "cases.json").read_text(encoding="utf-8"))
-        self.assertGreaterEqual(len(cases), 20)
+        self.assertGreaterEqual(len(cases), 28)
         identifiers = {case["id"] for case in cases}
         self.assertEqual(len(identifiers), len(cases))
         for case in cases:
@@ -70,6 +73,18 @@ class RepositoryTests(unittest.TestCase):
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
         self.assertEqual(module.main(), 0)
+
+    def test_force_install_keeps_backup_outside_skill_discovery(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            skills_dir = Path(temp_dir) / "skills"
+            command = [sys.executable, str(ROOT / "scripts" / "install.py"), "--skills-dir", str(skills_dir)]
+            subprocess.run(command, check=True, capture_output=True, text=True)
+            subprocess.run([*command, "--force"], check=True, capture_output=True, text=True)
+            self.assertTrue((skills_dir / SKILL.name / "SKILL.md").is_file())
+            self.assertEqual([path.name for path in skills_dir.iterdir()], [SKILL.name])
+            backups = list((Path(temp_dir) / "skill-backups").iterdir())
+            self.assertEqual(len(backups), 1)
+            self.assertTrue((backups[0] / "SKILL.md").is_file())
 
 
 if __name__ == "__main__":

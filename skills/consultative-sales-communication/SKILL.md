@@ -41,6 +41,8 @@ description: 中文B2B与项目型销售的沟通决策 Skill。用于根据客�
 
 只有缺失信息会实质改变回复方向时，才问一个决定性问题；否则基于已知事实给保守版本，并明确假设。
 
+个人联系人的积极态度不等于组织已经决策。出现多人评估、内部讨论、技术认可但采购未确认等情况时，按组织决策路径判断进展。
+
 ## 组织话术
 
 优先使用三段式，并按场景删减：
@@ -66,6 +68,8 @@ description: 中文B2B与项目型销售的沟通决策 Skill。用于根据客�
 
 - 价格、忙、固定供应商、无需求、无权限等顾虑：[objection-routing.md](references/objection-routing.md)
 - 需求发现与低审讯感提问：[discovery-and-questioning.md](references/discovery-and-questioning.md)
+- 客户长段表达、强情绪或建议前确认：[listening-and-synthesis.md](references/listening-and-synthesis.md)
+- 多角色评估、内部推动与共同动作表：[decision-and-stakeholders.md](references/decision-and-stakeholders.md)
 - 新价值触发、等待、暂缓与恢复联系：[follow-up-and-pipeline.md](references/follow-up-and-pipeline.md)
 - 价格比较、交换条件、让步权限与承诺：[negotiation-and-commitment.md](references/negotiation-and-commitment.md)
 - 微信、电话、会议、投诉及会后纪要：[channel-playbooks.md](references/channel-playbooks.md)

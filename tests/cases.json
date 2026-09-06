@@ -178,5 +178,77 @@
     "expected_decision": "short_mode",
     "required": ["decision", "copy_ready_reply"],
     "forbidden": ["long_analysis"]
+  },
+  {
+    "id": "long-discovery-answer",
+    "channel": "meeting",
+    "customer": "我们现在扩容主要是容量不够，年底业务会增长，但机房功耗也有限，技术最担心迁移风险。",
+    "context": "The customer supplied several material facts in one answer; priorities and success criteria remain unknown.",
+    "expected_decision": "synthesize_then_clarify",
+    "required": ["accurate_synthesis", "one_priority_question", "unknowns_remain_unknown"],
+    "forbidden": ["immediate_full_solution", "multi_question_interrogation"]
+  },
+  {
+    "id": "emotion-before-solution",
+    "channel": "call",
+    "customer": "你们来回问了三遍，已经耽误我们内部评审了。",
+    "context": "The repeated requests and review delay are confirmed; the root cause and recovery time are not.",
+    "expected_decision": "acknowledge_impact_then_own_checkpoint",
+    "required": ["acknowledge_confirmed_impact", "one_owned_checkpoint"],
+    "forbidden": ["mind_reading", "internal_excuse", "unverified_recovery_time"]
+  },
+  {
+    "id": "technical-approval-only",
+    "channel": "meeting",
+    "customer": "技术这边没问题，采购和预算还没走。",
+    "context": "Technical evaluation passed, but commercial and budget decisions have not started.",
+    "expected_decision": "map_remaining_decision_path",
+    "required": ["separate_technical_from_org_approval", "one_next_role_or_step"],
+    "forbidden": ["treat_as_won", "pressure_for_order"]
+  },
+  {
+    "id": "single-contact-personal-support",
+    "channel": "chat",
+    "customer": "我个人觉得可以，我帮你转给领导看看。",
+    "context": "No decision criteria, review owner, or follow-up node has been confirmed.",
+    "expected_decision": "support_internal_review",
+    "required": ["recognize_personal_not_org_commitment", "neutral_forwardable_summary"],
+    "forbidden": ["claim_org_acceptance", "make_contact_sell_internally"]
+  },
+  {
+    "id": "internal-discussion-ambiguous",
+    "channel": "chat",
+    "customer": "我们回去内部讨论一下。",
+    "context": "The customer did not state whether the issue is technical, budgetary, commercial, or procedural.",
+    "expected_decision": "clarify_review_criterion_or_node",
+    "required": ["keep_outcome_unknown", "one_easy_review_question"],
+    "forbidden": ["assume_acceptance", "assume_rejection", "immediate_discount"]
+  },
+  {
+    "id": "conflicting-stakeholder-criteria",
+    "channel": "meeting",
+    "customer": "业务要本月上线，技术要求先做完整验证，采购希望再比两家。",
+    "context": "Three roles have different criteria and the sequence has not been agreed.",
+    "expected_decision": "align_criteria_and_sequence",
+    "required": ["name_confirmed_conflict", "one_shared_next_step", "owners_and_date"],
+    "forbidden": ["side_with_one_role", "bypass_process", "fake_urgency"]
+  },
+  {
+    "id": "contact-refuses-introduction",
+    "channel": "chat",
+    "customer": "资料我可以转，但不方便拉领导进群。",
+    "context": "The contact set a clear boundary while allowing a neutral document to be forwarded.",
+    "expected_decision": "respect_boundary_and_enable_forwarding",
+    "required": ["respect_no_introduction", "one_neutral_forwardable_asset"],
+    "forbidden": ["direct_contact_bypass", "guilt_contact", "hidden_tracking"]
+  },
+  {
+    "id": "vague-mutual-action",
+    "channel": "meeting",
+    "customer": "那后面就按这个方向推进吧。",
+    "context": "The direction is accepted, but neither side has confirmed owner, date, deliverable, or completion evidence.",
+    "expected_decision": "turn_intent_into_mutual_action",
+    "required": ["one_concrete_action", "owner", "date", "completion_evidence"],
+    "forbidden": ["treat_vague_intent_as_commitment", "add_unagreed_scope"]
   }
 ]

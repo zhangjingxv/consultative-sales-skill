@@ -13,6 +13,8 @@ An evidence-aware sales communication skill for Codex and other agent runtimes t
 - Applies evidence gates to price, inventory, compatibility, delivery, and other commercial claims.
 - Stops pressure after explicit rejection or repeated weak responses.
 - Supports coaching mode so users learn the judgment process instead of relying only on generated copy.
+- Synthesizes long customer answers before proposing a solution or asking another question.
+- Separates one contact's support from the buying organization's technical, commercial, budget, and approval path.
 
 ## Core model
 
@@ -37,6 +39,7 @@ python3 scripts/install.py
 ```
 
 The installer copies the skill to `~/.codex/skills/consultative-sales-communication` by default. It never installs the repository documentation or tests into the skill directory.
+When `--force` replaces an installation, the previous copy is stored in `~/.codex/skill-backups` so it cannot be discovered as a second active Skill.
 
 To choose another skills directory:
 

@@ -44,9 +44,12 @@ def main() -> int:
             if len(values.get("description", "")) > 240:
                 failures.append("description is too broad; keep it under 240 characters")
 
-        for link in re.findall(r"\]\((references/[^)]+)\)", text):
-            if not (SKILL / link).is_file():
-                failures.append(f"missing reference: {link}")
+        for markdown in SKILL.rglob("*.md"):
+            markdown_text = markdown.read_text(encoding="utf-8")
+            for link in re.findall(r"\]\(([^):#]+\.md)\)", markdown_text):
+                target = (markdown.parent / link).resolve()
+                if not target.is_file():
+                    failures.append(f"missing reference from {markdown.relative_to(SKILL)}: {link}")
         if len(text.splitlines()) > 140:
             failures.append("SKILL.md is too long for an entrypoint; move details to references")
 
