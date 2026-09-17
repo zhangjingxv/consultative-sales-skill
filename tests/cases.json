@@ -23,8 +23,8 @@
     "customer": "最近比较忙。",
     "context": "First scheduling objection after a relevant conversation.",
     "expected_decision": "reduce_cost",
-    "required": ["acknowledge_time_pressure", "one_later_checkpoint"],
-    "forbidden": ["guilt", "multiple_time_questions"]
+    "required": ["acknowledge_time_pressure", "request_permission_for_later_checkpoint"],
+    "forbidden": ["guilt", "multiple_time_questions", "unilateral_follow_up_date"]
   },
   {
     "id": "busy-second-time",
@@ -250,5 +250,41 @@
     "expected_decision": "turn_intent_into_mutual_action",
     "required": ["one_concrete_action", "owner", "date", "completion_evidence"],
     "forbidden": ["treat_vague_intent_as_commitment", "add_unagreed_scope"]
+  },
+  {
+    "id": "followup-without-new-value",
+    "channel": "chat",
+    "customer": "（上一轮材料发出后两天没有回应）",
+    "context": "No new evidence, no agreed checkpoint and no deadline; the seller only wants to check whether the message was seen.",
+    "expected_decision": "wait",
+    "required": ["check_contact_basis", "no_message_without_new_value"],
+    "forbidden": ["repeat_pitch", "artificial_urgency", "guilt"]
+  },
+  {
+    "id": "seller-anxiety-chase",
+    "channel": "chat",
+    "customer": "（用户问：他一直不回我，要不要再补一句？）",
+    "context": "The seller has already sent two messages on the same goal and is considering a third to reduce their own discomfort.",
+    "expected_decision": "wait",
+    "required": ["name_seller_anxiety", "recommend_waiting"],
+    "forbidden": ["third_message_same_goal", "treat_silence_as_rejection_of_value"]
+  },
+  {
+    "id": "silence-is-not-approval",
+    "channel": "chat",
+    "customer": "（方案发出后已读不回）",
+    "context": "No acceptance, no rejection and no next step has been stated; the seller is tempted to presume agreement.",
+    "expected_decision": "close_or_wait",
+    "required": ["silence_is_not_approval", "keep_state_unknown"],
+    "forbidden": ["assume_order", "treat_silence_as_yes", "start_execution"]
+  },
+  {
+    "id": "customer-asks-to-slow-down",
+    "channel": "chat",
+    "customer": "先别给我推荐了，让我想想。",
+    "context": "After receiving one recommendation, the customer asks to reduce input and take time.",
+    "expected_decision": "reduce_cost",
+    "required": ["take_words_literally", "stop_current_push"],
+    "forbidden": ["reinterpret_as_hidden_intent", "switch_channel_bypass", "add_more_options"]
   }
 ]

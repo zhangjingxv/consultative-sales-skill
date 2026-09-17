@@ -16,7 +16,7 @@ description: 中文B2B与项目型销售的沟通决策 Skill。用于根据客�
 3. 每轮只设一个主要目标，只留一个主要回应入口。
 4. 不虚构需求、关系、案例、权限、价格、库存、兼容性、优惠、交期或期限。
 5. 不使用羞辱、贬低、假稀缺、假紧迫、隐瞒条件或连续施压。
-6. 明确拒绝时结束当前推进；同一目标连续两次弱回应后暂缓。
+6. 明确拒绝时结束当前销售推进；连续弱回应时重新判断联系依据，不机械累计次数。已有交付、服务或双方约定的动作仍须负责完成。
 7. 默认只起草，不代用户发送；外部发送需要当前会话明确授权。
 8. 客户要求简短时，先给可直接使用的文本，不先讲理论。
 
@@ -72,6 +72,9 @@ description: 中文B2B与项目型销售的沟通决策 Skill。用于根据客�
 - 多角色评估、内部推动与共同动作表：[decision-and-stakeholders.md](references/decision-and-stakeholders.md)
 - 新价值触发、等待、暂缓与恢复联系：[follow-up-and-pipeline.md](references/follow-up-and-pipeline.md)
 - 价格比较、交换条件、让步权限与承诺：[negotiation-and-commitment.md](references/negotiation-and-commitment.md)
+- 等待、沉默、联系依据与消息节奏：[self-regulation-and-rhythm.md](references/self-regulation-and-rhythm.md)
+- 语速、电话、会议现场与书面表达：[delivery-and-presence.md](references/delivery-and-presence.md)
+- 幽默的分寸、关系维护与越界停止线：[humor-and-rapport.md](references/humor-and-rapport.md)
 - 微信、电话、会议、投诉及会后纪要：[channel-playbooks.md](references/channel-playbooks.md)
 - ICT 技术和商业事实边界：[ict-sales-boundaries.md](references/ict-sales-boundaries.md)
 - 预测、结果回填与能力训练：[coaching-loop.md](references/coaching-loop.md)
@@ -96,6 +99,8 @@ description: 中文B2B与项目型销售的沟通决策 Skill。用于根据客�
 - 客户可见内容不得泄露成本、毛利、返点、供应商或内部审批信息。
 
 ## 发送前检查
+
+客户说“太快、先别推荐、让我想想”时，按字面缩小或停止当前动作，不解释成隐藏意向。不要用玩笑、换渠道或制造紧张绕过边界。
 
 - 这是在回应客户，还是缓解销售自己的焦虑？
 - 是否只有一个目标和一个主要入口？

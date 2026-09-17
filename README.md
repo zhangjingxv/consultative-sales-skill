@@ -15,6 +15,9 @@ An evidence-aware sales communication skill for Codex and other agent runtimes t
 - Supports coaching mode so users learn the judgment process instead of relying only on generated copy.
 - Synthesizes long customer answers before proposing a solution or asking another question.
 - Separates one contact's support from the buying organization's technical, commercial, budget, and approval path.
+- Separates the seller's own urge to follow up from an actual reason to contact the customer.
+- Adapts delivery — pace, pauses, channel, message length — and keeps one goal per turn.
+- Keeps humor, small talk, and relationship maintenance inside explicit stop lines.
 
 ## Core model
 
