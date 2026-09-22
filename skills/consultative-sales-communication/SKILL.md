@@ -79,6 +79,7 @@ description: 中文B2B与项目型销售的沟通决策 Skill。用于根据客�
 - ICT 技术和商业事实边界：[ict-sales-boundaries.md](references/ict-sales-boundaries.md)
 - 预测、结果回填与能力训练：[coaching-loop.md](references/coaching-loop.md)
 - 可信证据、匿名化与禁止操控：[ethics-and-trust.md](references/ethics-and-trust.md)
+- 每轮判定标签的可观测口径：[decision-vocabulary.md](references/decision-vocabulary.md)
 
 ## 场景输出
 
