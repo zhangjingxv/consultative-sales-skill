@@ -41,22 +41,31 @@ def load_definitions(text: str) -> dict[str, str]:
 
 
 def main() -> int:
-    definitions = load_definitions(VOCAB.read_text(encoding="utf-8"))
     cases = json.loads(CASES.read_text(encoding="utf-8"))
 
     usage: dict[str, list[str]] = {}
     for case in cases:
         usage.setdefault(case["expected_decision"], []).append(case["id"])
 
+    ok = True
+    for language, skill in (("zh", SKILL), ("en", SKILL.with_name(SKILL.name + "-en"))):
+        ok = audit_language(language, skill, cases, usage) and ok
+    print("ok=" + ("true" if ok else "false"))
+    return 0 if ok else 1
+
+
+def audit_language(language, skill, cases, usage):
+    definitions = load_definitions((skill / "references" / "decision-vocabulary.md").read_text(encoding="utf-8"))
     missing = sorted(label for label in usage if label not in definitions)
+    markers = ("可观测行为", "反例") if language == "zh" else ("Observable behavior", "Counterexample")
     thin = sorted(
         label
         for label, body in definitions.items()
-        if "可观测行为" not in body or "反例" not in body
+        if any(marker not in body for marker in markers)
     )
     unused = sorted(label for label in definitions if label not in usage)
 
-    print(f"cases={len(cases)} labels_used={len(usage)} labels_defined={len(definitions)}")
+    print(f"language={language} cases={len(cases)} labels_used={len(usage)} labels_defined={len(definitions)}")
     for name, items in (
         ("missing_definition", missing),
         ("thin_definition", thin),
@@ -65,9 +74,7 @@ def main() -> int:
         suffix = ": " + ", ".join(items) if items else ""
         print(f"{name}={len(items)}{suffix}")
 
-    ok = not missing and not thin
-    print("ok=" + ("true" if ok else "false"))
-    return 0 if ok else 1
+    return not missing and not thin
 
 
 if __name__ == "__main__":

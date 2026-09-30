@@ -12,9 +12,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills" / "consultative-sales-communication"
 
 
-def main() -> int:
+def validate_package(skill: Path) -> list[str]:
     failures: list[str] = []
-    entry = SKILL / "SKILL.md"
+    entry = skill / "SKILL.md"
     if not entry.is_file():
         failures.append("SKILL.md is missing")
     else:
@@ -29,6 +29,8 @@ def main() -> int:
                     failures.append(f"invalid frontmatter line: {line}")
                     continue
                 key, value = line.split(":", 1)
+                if ": " in value and not value.strip().startswith(('"', "'")):
+                    failures.append(f"quote YAML scalar containing colon-space: {key.strip()}")
                 pairs.append((key.strip(), value.strip()))
             keys = [key for key, _ in pairs]
             if keys != ["name", "description"]:
@@ -37,27 +39,34 @@ def main() -> int:
             name = values.get("name", "")
             if not re.fullmatch(r"[a-z0-9-]{1,63}", name):
                 failures.append(f"invalid skill name: {name}")
-            if name != SKILL.name:
-                failures.append(f"folder/name mismatch: {SKILL.name} vs {name}")
+            if name != skill.name:
+                failures.append(f"folder/name mismatch: {skill.name} vs {name}")
             if len(values.get("description", "")) < 40:
                 failures.append("description is too short to trigger reliably")
             if len(values.get("description", "")) > 240:
                 failures.append("description is too broad; keep it under 240 characters")
 
-        for markdown in SKILL.rglob("*.md"):
+        for markdown in skill.rglob("*.md"):
             markdown_text = markdown.read_text(encoding="utf-8")
             for link in re.findall(r"\]\(([^):#]+\.md)\)", markdown_text):
                 target = (markdown.parent / link).resolve()
                 if not target.is_file():
-                    failures.append(f"missing reference from {markdown.relative_to(SKILL)}: {link}")
+                    failures.append(f"missing reference from {markdown.relative_to(skill)}: {link}")
         if len(text.splitlines()) > 140:
             failures.append("SKILL.md is too long for an entrypoint; move details to references")
 
-    agent_yaml = SKILL / "agents" / "openai.yaml"
+    agent_yaml = skill / "agents" / "openai.yaml"
     if not agent_yaml.is_file():
         failures.append("agents/openai.yaml is missing")
-    elif "$consultative-sales-communication" not in agent_yaml.read_text(encoding="utf-8"):
-        failures.append("default prompt must mention $consultative-sales-communication")
+    elif "$" + skill.name not in agent_yaml.read_text(encoding="utf-8"):
+        failures.append(f"default prompt must mention ${skill.name}")
+    return failures
+
+
+def main() -> int:
+    failures = []
+    for skill in (SKILL, SKILL.with_name(SKILL.name + "-en")):
+        failures.extend(f"{skill.name}: {error}" for error in validate_package(skill))
 
     if failures:
         print("Skill validation failed:", file=sys.stderr)

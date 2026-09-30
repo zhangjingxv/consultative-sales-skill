@@ -2,6 +2,10 @@
 
 An evidence-aware sales communication skill for Codex and other agent runtimes that support `SKILL.md` packages.
 
+**v1.4.0 — Chinese and English packages.** Both include the same 26 operational
+judgment rules with triggers, stop lines and counterexamples. They are communication
+guidance, not claims of guaranteed conversion or psychological laws.
+
 它帮助销售人员先判断客户信号和沟通阶段，再决定推进、澄清、等待或结束；输出自然、简短、可直接使用的中文沟通建议，而不是堆砌“万能话术”。
 
 ## What it does
@@ -41,6 +45,18 @@ Clone the repository and run:
 python3 scripts/install.py
 ```
 
+Choose the language:
+
+```bash
+python3 scripts/install.py --language zh       # 中文版，默认
+python3 scripts/install.py --language en       # English edition
+python3 scripts/install.py --language both     # Install both
+```
+
+Use `--force` to update installed packages with recoverable backups. The English
+package is installed as `consultative-sales-communication-en`; each package is
+self-contained and needs no remote service or API credential at use time.
+
 The installer copies the skill to `~/.codex/skills/consultative-sales-communication` by default. It never installs the repository documentation or tests into the skill directory.
 When `--force` replaces an installation, the previous copy is stored in `~/.codex/skill-backups` so it cannot be discovered as a second active Skill.
 
@@ -57,6 +73,15 @@ Invoke the skill explicitly:
 ```text
 Use $consultative-sales-communication. The customer said “we already have a long-term supplier.” What should I reply?
 ```
+
+English-first invocation:
+
+```text
+Use $consultative-sales-communication-en. The customer said “we already have a long-term supplier.” Draft a concise English reply.
+```
+
+中文版默认中文，英文版默认英文；明确指定的输出语言优先。两版的 M01–M26
+核心规则与停止条件逐项对应，英文参考文件按英语销售沟通习惯重新表达。
 
 Or describe the situation naturally:
 
@@ -79,6 +104,7 @@ When the user asks for a short answer, the skill returns only the decision and t
 
 ```text
 skills/consultative-sales-communication/  Installable skill package
+skills/consultative-sales-communication-en/ English skill package
 tests/                                    Behavioral and structural cases
 scripts/install.py                        Local installer
 scripts/audit_public_tree.py              Privacy and release guard

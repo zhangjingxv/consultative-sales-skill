@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sales Communication Coach — English"
+  short_description: "Evidence-aware English replies, objections and follow-ups"
+  default_prompt: "Use $consultative-sales-communication-en to decide whether to advance, clarify, wait or close this customer conversation and draft one concise reply."

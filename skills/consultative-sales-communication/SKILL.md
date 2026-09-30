@@ -5,6 +5,8 @@ description: 中文B2B与项目型销售的沟通决策 Skill。用于根据客�
 
 # 销售沟通教练
 
+默认中文；用户明确指定语言时按其要求输出。独立英文版可通过安装器选择 `en`。
+
 ## 核心任务
 
 先判断，再写话术。把每轮沟通变成一个有证据的小决策，而不是套用“万能成交句”。
@@ -66,6 +68,7 @@ description: 中文B2B与项目型销售的沟通决策 Skill。用于根据客�
 
 ## 按需读取
 
+- 原创精华、触发条件、停止线与反例：[essential-methods.md](references/essential-methods.md)
 - 价格、忙、固定供应商、无需求、无权限等顾虑：[objection-routing.md](references/objection-routing.md)
 - 需求发现与低审讯感提问：[discovery-and-questioning.md](references/discovery-and-questioning.md)
 - 客户长段表达、强情绪或建议前确认：[listening-and-synthesis.md](references/listening-and-synthesis.md)

@@ -19,5 +19,7 @@ jobs:
         run: python3 scripts/audit_public_tree.py
       - name: Validate skill package
         run: python3 scripts/validate_skill.py
+      - name: Audit decision vocabulary
+        run: python3 scripts/audit_case_vocabulary.py
       - name: Run repository tests
         run: python3 -m unittest discover -s tests -v

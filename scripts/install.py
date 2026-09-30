@@ -22,6 +22,8 @@ def main() -> int:
         help="parent directory where the skill folder will be installed",
     )
     parser.add_argument("--force", action="store_true", help="replace an existing installation")
+    parser.add_argument("--language", choices=("zh", "en", "both"), default="zh",
+                        help="Chinese (default), English, or both independent packages")
     parser.add_argument(
         "--backup-dir",
         type=Path,
@@ -29,15 +31,29 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    if not (SOURCE / "SKILL.md").is_file():
-        parser.error(f"skill package missing: {SOURCE}")
-
-    destination = args.skills_dir.expanduser().resolve() / SOURCE.name
-    if destination.exists():
+    sources = ([SOURCE] if args.language == "zh" else
+               [SOURCE.with_name(SOURCE.name + "-en")] if args.language == "en" else
+               [SOURCE, SOURCE.with_name(SOURCE.name + "-en")])
+    # Preflight every selected package before replacing any existing installation.
+    for source in sources:
+        if not (source / "SKILL.md").is_file():
+            parser.error(f"skill package missing: {source}")
+        destination = args.skills_dir.expanduser().resolve() / source.name
+        if not destination.exists():
+            continue
         if not args.force:
             parser.error(f"destination exists: {destination}; use --force to replace it")
         if destination.is_symlink() or not destination.is_dir():
             parser.error(f"refusing to replace non-directory destination: {destination}")
+
+    for source in sources:
+        install_source(source, args, parser)
+    return 0
+
+
+def install_source(source: Path, args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
+    destination = args.skills_dir.expanduser().resolve() / source.name
+    if destination.exists():
         timestamp = datetime.now().strftime("%Y%m%d-%H%M%S-%f")
         backup_root = (
             args.backup_dir.expanduser().resolve()
@@ -52,9 +68,8 @@ def main() -> int:
         print(f"Backed up existing installation to {backup}")
 
     destination.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(SOURCE, destination)
-    print(f"Installed {SOURCE.name} to {destination}")
-    return 0
+    shutil.copytree(source, destination)
+    print(f"Installed {source.name} to {destination}")
 
 
 if __name__ == "__main__":
