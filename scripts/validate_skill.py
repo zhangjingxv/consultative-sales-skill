@@ -65,8 +65,11 @@ def validate_package(skill: Path) -> list[str]:
 
 def main() -> int:
     failures = []
-    for skill in (SKILL, SKILL.with_name(SKILL.name + "-en")):
+    for skill in (SKILL,):
         failures.extend(f"{skill.name}: {error}" for error in validate_package(skill))
+    entries = sorted(path for path in (ROOT / "skills").rglob("SKILL.md"))
+    if entries != [SKILL / "SKILL.md"]:
+        failures.append("exactly one installable SKILL.md is required")
 
     if failures:
         print("Skill validation failed:", file=sys.stderr)

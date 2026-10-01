@@ -48,7 +48,7 @@ def main() -> int:
         usage.setdefault(case["expected_decision"], []).append(case["id"])
 
     ok = True
-    for language, skill in (("zh", SKILL), ("en", SKILL.with_name(SKILL.name + "-en"))):
+    for language, skill in (("zh", SKILL), ("en", SKILL / "languages/en")):
         ok = audit_language(language, skill, cases, usage) and ok
     print("ok=" + ("true" if ok else "false"))
     return 0 if ok else 1

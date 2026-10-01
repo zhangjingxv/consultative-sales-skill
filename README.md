@@ -1,155 +1,104 @@
-# Consultative Sales Skill
+# 销售沟通 Skill
 
-An evidence-aware sales communication skill for Codex and other agent runtimes that support `SKILL.md` packages.
+[中文](README.md) | [English](README.en.md)
 
-**v1.4.0 — Chinese and English packages.** Both include the same 26 operational
-judgment rules with triggers, stop lines and counterexamples. They are communication
-guidance, not claims of guaranteed conversion or psychological laws.
+**v1.4.1：一个 Skill 包，同时支持中文和英文。** 顶部链接切换 GitHub 说明文档；不会保存语言偏好，也不会改变 Skill 的实际输出语言。
 
-它帮助销售人员先判断客户信号和沟通阶段，再决定推进、澄清、等待或结束；输出自然、简短、可直接使用的中文沟通建议，而不是堆砌“万能话术”。
+面向 B2B 与项目型销售，先判断客户信号和沟通阶段，再决定推进、澄清、等待或结束。输出自然、简短、可直接使用的话术，而不是“万能成交句”。
 
-## What it does
+## 能做什么
 
-- Diagnoses customer engagement without mistaking politeness for purchase intent.
-- Selects one objective and one response entry point per conversation turn.
-- Drafts concise messages for chat, calls, meetings, objections, and follow-ups.
-- Separates confirmed facts, seller assumptions, and unknown information.
-- Applies evidence gates to price, inventory, compatibility, delivery, and other commercial claims.
-- Stops pressure after explicit rejection or repeated weak responses.
-- Supports coaching mode so users learn the judgment process instead of relying only on generated copy.
-- Synthesizes long customer answers before proposing a solution or asking another question.
-- Separates one contact's support from the buying organization's technical, commercial, budget, and approval path.
-- Separates the seller's own urge to follow up from an actual reason to contact the customer.
-- Adapts delivery — pace, pauses, channel, message length — and keeps one goal per turn.
-- Keeps humor, small talk, and relationship maintenance inside explicit stop lines.
+- 判断客户的实际动作，不把礼貌、热情或沉默当成购买意向。
+- 每轮选一个目标，起草消息、电话、拜访、异议与跟进表达。
+- 综合客户长段说明，区分需求、约束、未知及组织决策角色。
+- 对价格、库存、兼容性、交付、权限等保留事实核验门禁。
+- 尊重拒绝，避免假紧迫、连续施压和无依据承诺。
+- 支持复盘训练，区分判断偏差与表达偏差。
 
-## Core model
+内含 M01–M26 共 26 条原创方法，每条都有触发条件、动作、停止线与反例。它们是沟通判断工具，不是成交率、心理学规律或技术可行性的证明。
 
-```text
-Signal → Stage → Concern → One-turn goal → Action
-```
+## 安装与更新
 
-The default message shape is:
-
-```text
-Acknowledge → Add one useful value → Leave one easy next step
-```
-
-Either part may be omitted when the situation calls for a shorter response. Explicit rejection should normally lead to acknowledgment and closure.
-
-## Install
-
-Clone the repository and run:
+克隆本仓库后，在仓库目录运行：
 
 ```bash
 python3 scripts/install.py
 ```
 
-Choose the language:
+只安装 `consultative-sales-communication` 一个包，中英文内容都在其中。日常使用不需要远程 API 或密钥。
+
+更新已有安装，旧版本会备份到技能发现目录之外：
 
 ```bash
-python3 scripts/install.py --language zh       # 中文版，默认
-python3 scripts/install.py --language en       # English edition
-python3 scripts/install.py --language both     # Install both
+python3 scripts/install.py --force
 ```
 
-Use `--force` to update installed packages with recoverable backups. The English
-package is installed as `consultative-sales-communication-en`; each package is
-self-contained and needs no remote service or API credential at use time.
+从 v1.4.0 的两个独立包迁移到一个包：
 
-The installer copies the skill to `~/.codex/skills/consultative-sales-communication` by default. It never installs the repository documentation or tests into the skill directory.
-When `--force` replaces an installation, the previous copy is stored in `~/.codex/skill-backups` so it cannot be discovered as a second active Skill.
+```bash
+python3 scripts/install.py --force --migrate-legacy-en
+```
 
-To choose another skills directory:
+安装器先安装统一包，再将旧独立英文包移入备份目录，不删除旧内容。默认安装位置为 `~/.codex/skills/consultative-sales-communication`，备份位置为 `~/.codex/skill-backups`。
+
+指定其他技能目录：
 
 ```bash
 python3 scripts/install.py --skills-dir /path/to/skills
 ```
 
-## Use
+## 使用与输出语言
 
-Invoke the skill explicitly:
-
-```text
-Use $consultative-sales-communication. The customer said “we already have a long-term supplier.” What should I reply?
-```
-
-English-first invocation:
+无论中文还是英文，都使用同一个技能名：
 
 ```text
-Use $consultative-sales-communication-en. The customer said “we already have a long-term supplier.” Draft a concise English reply.
+使用 $consultative-sales-communication。客户说“已经有长期供应商”，给我一版中文回复。
 ```
-
-中文版默认中文，英文版默认英文；明确指定的输出语言优先。两版的 M01–M26
-核心规则与停止条件逐项对应，英文参考文件按英语销售沟通习惯重新表达。
-
-Or describe the situation naturally:
 
 ```text
-客户收到报价一周没回复，也没有新进展。现在要不要追？如果要，直接给我能发的话。
+Use $consultative-sales-communication. The customer said “we already have a long-term supplier.” Draft a concise English reply.
 ```
 
-The default output is:
+明确指定的输出语言优先；否则跟随用户请求语言，无法判断时默认中文。不需要重新安装。英文任务只按需读取包内英文指南和参考资料。
+
+默认输出：
 
 ```text
-Decision: send now / wait / close this turn
-Copy-ready reply: ...
-Evidence: customer signal ...; one-turn goal ...
-Unknowns: ...
+判断：现在发／等一下／结束本轮
+可直接发送：……
+依据：客户信号……；本轮目标……
+未知：……（没有则省略）
 ```
 
-When the user asks for a short answer, the skill returns only the decision and the copy-ready reply.
+用户要求“直接给我怎么回”时，只给判断和可发送文本。默认只起草，不自动发送；外部发送需要当前授权。
 
-## Repository layout
+## 包结构
 
 ```text
-skills/consultative-sales-communication/  Installable skill package
-skills/consultative-sales-communication-en/ English skill package
-tests/                                    Behavioral and structural cases
-scripts/install.py                        Local installer
-scripts/audit_public_tree.py              Privacy and release guard
-.github/workflows/validate.yml            Continuous validation
+skills/consultative-sales-communication/
+  SKILL.md                  唯一技能入口
+  references/               中文参考资料
+  languages/en/guide.md      包内英文指南
+  languages/en/references/   英文参考资料
+  scripts/                  文案风险检查工具
+README.md                   中文说明
+README.en.md                English documentation
 ```
 
-## Design principles
+## 隐私与边界
 
-1. Evidence before confidence.
-2. One turn, one primary objective.
-3. Progress should match customer commitment.
-4. Unknown facts remain unknown.
-5. No fake scarcity, fake urgency, hidden conditions, or repeated pressure.
-6. Customer-visible messages never contain internal costs, margins, supplier details, or private scoring.
-7. Conversation advice does not replace technical, legal, pricing, or procurement validation.
+仓库只含原创方法、合成案例和校验工具，不含原始学习资料或私有客户聊天。
+不贡献原文件、摘录、来源清单、内部成本、毛利、供应商信息或凭据。沟通建议不能替代配置、核价、合同、采购和交付核验；未知必须保持未知。
 
-## Privacy and content policy
-
-This repository contains only original workflow instructions, synthetic examples, and validation cases.
-
-Do not contribute:
-
-- private customer conversations or identifying information;
-- books, course files, PDFs, EPUBs, archives, or copied source passages;
-- internal prices, costs, margins, supplier identities, credentials, or tokens;
-- examples that make unsupported technical or commercial claims.
-
-Use synthetic or fully anonymized cases when contributing tests.
-
-## Validate
+## 验证与贡献
 
 ```bash
 python3 scripts/audit_public_tree.py
 python3 scripts/validate_skill.py
+python3 scripts/audit_case_vocabulary.py
 python3 -m unittest discover -s tests -v
 ```
 
-The local release process additionally runs the official Codex `quick_validate.py` script when it is available.
+校验覆盖包结构、链接、双语规则与判定口径、安装迁移和文案风险检查。测试通过不证明所有模型回答正确或真实销售效果。
 
-`tests/linter_cases.json` contains safe and unsafe near-boundary examples. They verify that the message linter catches pressure and unsupported claims without treating cautious wording such as “不能保证” as a promise. The scenario contracts in `tests/cases.json` are evaluation fixtures, not proof that every model response is correct.
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md). New conversation patterns should be backed by a synthetic regression case and must pass the privacy and unsupported-claim checks.
-
-## License
-
-MIT. See [LICENSE](LICENSE).
+贡献约定见 [CONTRIBUTING.md](CONTRIBUTING.md)。许可证为 [MIT](LICENSE)。

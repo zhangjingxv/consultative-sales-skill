@@ -1,12 +1,8 @@
----
-name: consultative-sales-communication-en
-description: "English B2B sales coaching: interpret customer statements, choose advance, clarify, wait or close, and draft replies, calls, meetings, objections and follow-ups. Preserve technical and commercial evidence boundaries."
----
-
 # Consultative Sales Coach — English
 
 Decide before drafting. Default to English; honor an explicitly requested output language.
-For Chinese-first coaching, use the separately installable Chinese package.
+This is the English guide inside `$consultative-sales-communication`, not a separate skill.
+For Chinese coaching, use the shared [entrypoint](../../SKILL.md).
 
 ## Evidence and boundaries
 
