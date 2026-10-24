@@ -62,7 +62,7 @@ All labels follow the entrypoint's evidence, consent and commercial boundaries.
 - Counterexample: attack that supplier or demand replacement.
 
 ### follow_up_on_new_value
-- Observable behavior: reopen with one verified new relevant fact and an optional next action.
+- Observable behavior: with no applicable refusal or with renewed permission, contact with one verified new relevant fact and an optional next action.
 - Counterexample: ask whether the quotation was read without a trigger, or fabricate one.
 
 ### identify_role_path
@@ -87,7 +87,7 @@ All labels follow the entrypoint's evidence, consent and commercial boundaries.
 - Counterexample: repeat the request, send unwanted material or contact colleagues without consent.
 
 ### short_mode
-- Observable behavior: give a concise decision and one usable reply.
+- Observable behavior: give a concise decision and a reply only when a response is needed; for silent waiting, say not to send and omit the draft.
 - Counterexample: long theory, multiple alternatives or tables when brevity was requested.
 
 ### support_internal_review
@@ -103,10 +103,10 @@ All labels follow the entrypoint's evidence, consent and commercial boundaries.
 - Counterexample: start production or dispatch based on vague interest.
 
 ### verify_authority
-- Observable behavior: establish the person's purchasing scope and process role.
-- Counterexample: assume signing/budget authority or encourage overreach.
+- Observable behavior: identify whose authority is missing. For a seller's unapproved discount, keep the current quote and verify approval for the actual scope before promising; for buyer authority, establish purchasing scope and process role.
+- Counterexample: treat a requested discount as seller approval, confuse missing seller permission with missing buyer authority, or encourage either party to overcommit.
 
 ### wait
-- Observable behavior: acknowledge and stop; retain only agreed or explicitly authorized recontact conditions.
+- Observable behavior: stop advancing when asked to slow down or when there is no new value, due commitment or required service update. Acknowledge a live message only if needed; do not send another acknowledgment into silence. Retain only agreed or explicitly authorized recontact conditions.
 - Counterexample: resume the sales pitch the next day or through another channel.
   Necessary safety, correction, risk and service updates continue under existing duties.

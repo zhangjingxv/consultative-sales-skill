@@ -43,5 +43,75 @@
     "id": "unsafe-two-request-cues",
     "text": "方便把清单发我，另外请确认一下最晚到货时间。",
     "expected_rules": ["multiple-response-entries"]
+  },
+  {
+    "id": "english-unverified-guarantee",
+    "text": "I guarantee delivery tomorrow.",
+    "expected_rules": ["unsupported-certainty"]
+  },
+  {
+    "id": "english-negated-guarantee",
+    "text": "I cannot guarantee delivery yet. I will update you tomorrow.",
+    "expected_rules": []
+  },
+  {
+    "id": "negated-then-positive-claim",
+    "text": "I can't guarantee delivery, but I guarantee compatibility.",
+    "expected_rules": ["unsupported-certainty"]
+  },
+  {
+    "id": "chinese-negated-then-positive-claim",
+    "text": "不能保证交期，但保证兼容。",
+    "expected_rules": ["unsupported-certainty"]
+  },
+  {
+    "id": "english-commercial-evidence",
+    "text": "We have plenty of stock at the lowest price.",
+    "expected_rules": ["commercial-claim"]
+  },
+  {
+    "id": "english-negative-stock-still-needs-evidence",
+    "text": "It is not in stock.",
+    "expected_rules": ["commercial-claim"]
+  },
+  {
+    "id": "english-pressure",
+    "text": "You must buy today. Act now.",
+    "expected_rules": ["pressure"]
+  },
+  {
+    "id": "english-owned-update-not-pressure",
+    "text": "I must check the shipping status. I will update you tomorrow.",
+    "expected_rules": []
+  },
+  {
+    "id": "english-internal-data",
+    "text": "Our internal costs are lower and our gross margin is 20%.",
+    "expected_rules": ["internal-commercial-data"]
+  },
+  {
+    "id": "negation-does-not-remove-internal-data",
+    "text": "No gross margin above 30% is approved.",
+    "expected_rules": ["internal-commercial-data"]
+  },
+  {
+    "id": "english-empty-chase",
+    "text": "Just checking in. Have you read the proposal?",
+    "expected_rules": ["empty-chase"]
+  },
+  {
+    "id": "english-two-requests",
+    "text": "Could you send the list and please confirm the date.",
+    "expected_rules": ["multiple-response-entries"]
+  },
+  {
+    "id": "mixed-unverified-claim",
+    "text": "交期还没核实，but I guarantee delivery tomorrow.",
+    "expected_rules": ["unsupported-certainty"]
+  },
+  {
+    "id": "mixed-honest-limit",
+    "text": "交期还在确认，I cannot guarantee it yet.",
+    "expected_rules": []
   }
 ]

@@ -172,6 +172,27 @@ class RepositoryTests(unittest.TestCase):
             for target in re.findall(r"\]\(([^):#]+)\)", page.read_text()):
                 self.assertTrue((page.parent / target).is_file(), target)
 
+    def test_install_excludes_local_runtime_artifacts(self) -> None:
+        from unittest.mock import patch
+        spec = importlib.util.spec_from_file_location("skill_installer", ROOT / "scripts/install.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        with tempfile.TemporaryDirectory() as temp_dir:
+            source = Path(temp_dir) / "source" / SKILL.name
+            source.mkdir(parents=True)
+            (source / "SKILL.md").write_text("Synthetic install fixture")
+            (source / "helper.py").write_text("# synthetic helper")
+            (source / "__pycache__").mkdir()
+            (source / "__pycache__" / "helper.pyc").write_bytes(b"synthetic runtime data")
+            (source / ".DS_Store").write_bytes(b"synthetic desktop metadata")
+            destination = Path(temp_dir) / "skills"
+            with patch.object(module, "SOURCE", source), patch.object(sys, "argv", [
+                "install.py", "--skills-dir", str(destination)
+            ]):
+                self.assertEqual(module.main(), 0)
+            self.assertEqual({p.name for p in (destination / SKILL.name).iterdir()},
+                             {"SKILL.md", "helper.py"})
+
 
 if __name__ == "__main__":
     unittest.main()

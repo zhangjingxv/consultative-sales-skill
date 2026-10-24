@@ -2,7 +2,8 @@
 
 Each case must distinguish statements/facts/inference/unknowns, choose one goal,
 leave one main entry point, match the completed stage, avoid pressure/promises,
-protect internal information and provide a decision plus a concise usable reply.
+protect internal information and provide a decision plus a concise usable reply when needed.
+For silent waiting or already-ended contact, omitting the draft is correct.
 
 | Situation | Required behavior |
 |---|---|

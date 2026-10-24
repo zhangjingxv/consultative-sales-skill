@@ -4,7 +4,7 @@
 
 An evidence-aware sales communication skill for Codex and other agent runtimes that support `SKILL.md` packages.
 
-**v1.4.1 — One skill, Chinese and English.** The unified package includes 26 operational
+**v1.5.0 — One skill, Chinese and English.** The unified package includes 26 operational
 judgment rules with triggers, stop lines and counterexamples. They are communication
 guidance, not claims of guaranteed conversion or psychological laws.
 
@@ -13,6 +13,13 @@ advance, clarify, wait or close. Draft natural, concise replies rather than gene
 
 The language links above switch this GitHub documentation only. They do not save
 a language preference or change the skill's output language.
+
+## What's improved
+
+- Match direct replies, draft edits and practice to the user's request; load only needed references.
+- Omit a customer-facing draft when waiting. Respect contact restrictions while honoring existing service duties and agreed updates.
+- Distinguish seller discount approval from buyer purchasing authority.
+- Check English, Chinese and mixed-language drafts, with matched spans and one finding per rule.
 
 ## What it does
 
@@ -107,7 +114,19 @@ Evidence: customer signal ...; one-turn goal ...
 Unknowns: ...
 ```
 
-When the user asks for a short answer, the skill returns only the decision and the copy-ready reply.
+When the user asks for a short answer, the skill returns only the decision and a reply if one is needed.
+For silent waiting, it says “Do not send this turn” and omits the draft.
+
+Try: “Edit this draft while keeping my voice,” or “Play the customer and let me practice discovery before giving feedback.”
+
+From the installed skill directory, check a draft using a file or standard input:
+
+```bash
+python3 scripts/message_lint.py --file /path/to/customer-message.txt
+```
+
+`ok` means no implemented rule matched. The checker does not verify prices, stock,
+compatibility or authority online; review its findings in the conversation's context.
 
 ## Repository layout
 
@@ -154,6 +173,9 @@ python3 -m unittest discover -s tests -v
 ```
 
 The local release process additionally runs the official Codex `quick_validate.py` script when it is available.
+
+Six original synthetic scenarios were also tried by an independent agent for this release;
+see the observed results and limits in the [behavioral spot-check record](tests/behavioral-review-1.5.0.md).
 
 `tests/linter_cases.json` contains safe and unsafe near-boundary examples. They verify that the message linter catches pressure and unsupported claims without treating cautious wording such as “不能保证” as a promise. The scenario contracts in `tests/cases.json` are evaluation fixtures, not proof that every model response is correct.
 

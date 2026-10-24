@@ -4,6 +4,10 @@ Decide before drafting. Default to English; honor an explicitly requested output
 This is the English guide inside `$consultative-sales-communication`, not a separate skill.
 For Chinese coaching, use the shared [entrypoint](../../SKILL.md).
 
+Match the request: draft a reply, edit a draft, or practice/review. Give an urgent reply first;
+preserve intent and voice when editing. Ask for the user's own judgment only in training mode.
+Use this guide first for simple replies; load a reference only for the specific unresolved issue.
+
 ## Evidence and boundaries
 
 1. Treat customer statements and verified project evidence as facts; leave gaps unknown.
@@ -45,6 +49,11 @@ Unknowns: ... (omit when none)
 
 For “just give me the reply,” return only the decision and copy-ready text.
 Keep internal analysis separate from customer-facing language.
+When waiting without a pending response, or contact has already ended, say “Do not send this turn”
+and omit the draft. If the current customer message needs acknowledgment, give one short acknowledgment
+and stop advancing. If useful, tell the user what real condition would justify contact.
+Do not create a farewell or greeting merely to fill the format. For competing service duties,
+new evidence and contact restrictions, use [follow-up priority](references/follow-up-and-pipeline.md).
 
 ## Read only what the task needs
 
@@ -91,3 +100,6 @@ Never use humor or another channel to bypass that boundary.
 Do not expose internal cost, margin, rebates, supplier identities or private approval details.
 
 Automatic checks and model judgments are review aids, not proof of sales effectiveness.
+For a draft, run `python scripts/message_lint.py --file /path/to/customer-message.txt`
+from the skill directory, or pass text through standard input. The checker supports Chinese,
+English and mixed text and reports matching spans. No findings does not verify the facts or authorize sending.

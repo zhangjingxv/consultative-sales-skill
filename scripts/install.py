@@ -54,7 +54,8 @@ def main() -> int:
     if destination.exists():
         archive(destination, backup_root, parser)
     destination.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(SOURCE, destination)
+    shutil.copytree(SOURCE, destination,
+                    ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "*.pyo", ".DS_Store"))
     print(f"Installed {SOURCE.name} (Chinese + English) to {destination}")
     if args.migrate_legacy_en and legacy.exists():
         archive(legacy, backup_root, parser)

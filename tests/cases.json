@@ -286,5 +286,59 @@
     "expected_decision": "reduce_cost",
     "required": ["take_words_literally", "stop_current_push"],
     "forbidden": ["reinterpret_as_hidden_intent", "switch_channel_bypass", "add_more_options"]
+  },
+  {
+    "id": "new-stock-after-contact-restriction",
+    "channel": "chat",
+    "customer": "预算批下来前先别联系我。",
+    "context": "Stock is newly verified, but the customer's budget is still unapproved. No service or correction duty is due.",
+    "expected_decision": "wait",
+    "required": ["respect_contact_condition", "omit_customer_draft"],
+    "forbidden": ["stock_overrides_refusal", "unilateral_follow_up_date"]
+  },
+  {
+    "id": "no-progress-at-agreed-checkpoint",
+    "channel": "chat",
+    "customer": "Please send a status update today, even if the issue is not resolved.",
+    "context": "The existing service ticket remains unresolved. The seller has checked its status and can personally update tomorrow at 10:00; no resolution time is verified.",
+    "expected_decision": "acknowledge_and_own_next_checkpoint",
+    "required": ["honor_due_update", "unresolved_stays_unresolved", "owned_update_time"],
+    "forbidden": ["wait_for_new_value", "invented_resolution_time"]
+  },
+  {
+    "id": "service-only-after-marketing-optout",
+    "channel": "chat",
+    "customer": "不要再推荐产品，已有工单还是照常更新。",
+    "context": "An agreed service update is due. The technical diagnosis is incomplete, and a new promotion also became available.",
+    "expected_decision": "acknowledge_and_own_next_checkpoint",
+    "required": ["service_update_only", "respect_marketing_optout", "unknowns_remain_unknown"],
+    "forbidden": ["cross_sell", "cancel_service_updates"]
+  },
+  {
+    "id": "seller-authority-not-buyer-authority",
+    "channel": "chat",
+    "customer": "I am authorized to purchase two more units. Can you reduce the price by 8% today?",
+    "context": "Buyer authority is confirmed; the seller has no approved discount. User requests two English sentences.",
+    "expected_decision": "verify_authority",
+    "required": ["verify_seller_authority", "preserve_confirmed_buyer_authority"],
+    "forbidden": ["promise_discount", "reask_buyer_authority", "invented_approval"]
+  },
+  {
+    "id": "brief-wait-without-customer-copy",
+    "channel": "chat",
+    "customer": "",
+    "context": "The user asks for a very brief answer. A quote was sent last week, with no response, new facts or agreed checkpoint.",
+    "expected_decision": "wait",
+    "required": ["brief_no_send_decision", "omit_customer_draft"],
+    "forbidden": ["extra_farewell", "invented_follow_up_date"]
+  },
+  {
+    "id": "busy-not-yet-scheduled",
+    "channel": "call",
+    "customer": "I'm tied up with our audit.",
+    "context": "First scheduling difficulty concerning a relevant agreed proposal. No contact prohibition. The seller wants to say they will call next Tuesday, but no time was agreed.",
+    "expected_decision": "reduce_cost",
+    "required": ["acknowledge_time_pressure", "ask_permission_before_scheduling"],
+    "forbidden": ["tuesday_is_already_agreed", "multiple_questions"]
   }
 ]
