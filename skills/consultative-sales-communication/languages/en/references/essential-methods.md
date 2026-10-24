@@ -3,16 +3,18 @@
 Select the rule addressing the present blockage. This is a judgment reference,
 not a script checklist or evidence of buying intent, technical feasibility or effectiveness.
 
+For responding, contributing and extending a topic, see [conversation-foundations.md](conversation-foundations.md).
+
 ## Recognition and understanding
 
 | Rule | Trigger and action | Stop line and counterexample |
 |---|---|---|
 | M01 Behavioral evidence | When the customer provides material, time or colleagues, record completed actions and remaining gates. | Warmth, long replies or appearance cannot substitute for action evidence. |
 | M02 Context first | A short answer can have several causes; clarify only if the cause changes the next action. | Do not assign hidden motives to silence, busyness or rescheduling. |
-| M03 Synthesize first | For multiple facts, recap outcome, constraints and unknowns before asking about the decisive gap. | Do not cherry-pick product-friendly facts; revise your judgment when corrected. |
+| M03 Confirm understanding | Let new information change your next response. When alignment is needed, briefly recap outcomes, constraints and unknowns, invite correction and ask only about a decisive gap. | Do not recap every turn or cherry-pick product-friendly facts; no decisive gap means no question is needed. Revise your judgment when corrected. |
 | M04 One-turn goal | State one observable outcome; remove content that does not serve it. | Introducing, interrogating, asking budget and requesting a meeting at once stacks goals. |
-| M05 Useful exchange | After an answer, contribute one relevant observation, validation approach or fact. | Contribution creates no debt; never invent experiences or overshare private information. |
-| M06 Natural expression | Use the customer's vocabulary and the user's voice while retaining material conditions. | Do not mimic mechanically, hide risk in jargon or invent common ground. |
+| M05 Useful exchange | Contribute a genuine, relevant observation, validation approach, fact or action you can own when available; make acknowledgment specific to what the customer stated or what can be verified. | Contributions and acknowledgment create no debt. Do not invent experiences, flatter vaguely, overshare private information or require a contribution or question every turn. |
+| M06 Natural expression | Use the customer's vocabulary and the user's voice while retaining material conditions. Check relevance to the current question before elaborating; use analogy only to explain. | Do not mimic mechanically, hide risk in jargon or invent common ground; analogy does not prove performance, applicability or results. |
 
 ## Progress and boundaries
 
@@ -35,7 +37,7 @@ not a script checklist or evidence of buying intent, technical feasibility or ef
 | M16 Mutual actions | Record only agreed actions, owners, dates and completion evidence. | Discussion, intention and completion differ; do not commit on the customer's behalf. |
 | M17 Value-triggered follow-up | Business follow-up uses agreed checkpoints, new evidence, completed work or necessary risk updates. | Elapsed time is not value; ordinary conversation need not become business; marketing withdrawal does not cancel service updates. |
 | M18 Self-regulation | Check whether the urge to send comes from anxiety, ego or appeasement; pause and return to facts. | Do not punish, deliberately ignore the customer or withhold owed service. |
-| M19 Empathy with action | Acknowledge stated impact, then offer a checkpoint you can own. | Do not diagnose motives, lead with excuses or confuse an update with resolution. |
+| M19 Empathy with action | Acknowledge stated impact and choose listening, facts or action according to the current need. Existing service duties still require the action or update you can own. | Do not diagnose motives, lead with excuses or automatically offer a solution or checkpoint. Listening cannot replace delivery; an update time is not a resolution deadline. |
 | M20 Light humor | In an already relaxed, mutually comfortable exchange, add at most one relevant observation. | Laughter is not permission; complaints, risk and missed commitments need accuracy. |
 | M21 Consistent delivery | Track commitments, update on time and explain deviations with a new checkpoint. | Greetings, enthusiasm and gifts cannot replace delivery evidence. |
 | M22 Repair misunderstanding | Identify your mistaken understanding and its impact; correct the record and offer one repair action. | Apology does not erase duties; explaining your error does not prove buying engagement. |

@@ -5,9 +5,15 @@
 Become a partner who understands the customer and earns lasting trust, matching suitable products to real needs.
 This bilingual B2B sales assistant works with Codex and other runtimes that support `SKILL.md` packages.
 
-**v1.7.0 — One skill, Chinese and English.** The unified package includes 26 operational
+**v1.8.0 — One skill, Chinese and English.** The unified package includes 26 operational
 judgment rules with triggers, stop lines and counterexamples. They are communication
 guidance, not claims of guaranteed conversion or psychological laws.
+
+This version deepens conversation mechanics: distinguish sharing, questions, feelings
+and boundaries; respond to specific content and contribute truthful information;
+revise judgments after correction. Do not force a recap, question or advice into every
+turn. This updates skill instructions, examples and checks, not model weights or a
+claim of complete understanding of learning materials.
 
 | Core objective | What to establish or do |
 |---|---|
@@ -33,6 +39,7 @@ a language preference or change the skill's output language.
 
 | Module | Purpose |
 |---|---|
+| [Conversation foundations](skills/consultative-sales-communication/languages/en/references/conversation-foundations.md) | Identify the turn's purpose, respond specifically, share reciprocally, appreciate concrete actions, explain simply and repair misunderstanding |
 | [Customer context](skills/consultative-sales-communication/languages/en/references/customer-context.md) | Understand circumstances, concerns, and preferences; respond naturally to available facts, retain sources and dates, and avoid inferring buying intent from social posts |
 | [Understanding and trust](skills/consultative-sales-communication/languages/en/references/ethics-and-trust.md) | Listen and welcome correction, respect preferences, keep commitments and repair missed ones; familiarity does not establish trust |
 | [Deal progress](skills/consultative-sales-communication/languages/en/references/deal-progress.md) | Map ICT buying roles, define the present blocker and closure evidence, then ask for a concrete purchasing action |
@@ -69,10 +76,10 @@ claim to have seen content it has not read.
 Signal → Stage → Concern → One-turn goal → Action
 ```
 
-The default message shape is:
+First identify what this turn is doing, then choose the useful parts:
 
 ```text
-Acknowledge → Add one useful value → Leave one easy next step
+Acknowledge / Add one useful contribution / Offer one easy next step if needed
 ```
 
 Any part may be omitted when the situation calls for a shorter response. Social exchanges need not turn into a pitch. Explicit rejection should normally lead to acknowledgment and closure of the rejected outreach.
@@ -213,11 +220,11 @@ python3 -m unittest discover -s tests -v
 
 The local release process additionally runs the official Codex `quick_validate.py` script when it is available.
 
-An independent agent's actual replies to five original synthetic requests, reviewed
-by the coordinating agent, are in the [v1.7.0 behavioral spot check](tests/behavioral-review-1.7.0.md).
+An independent agent's actual replies to six original synthetic requests, reviewed
+by the coordinating agent, are in the [v1.8.0 behavioral spot check](tests/behavioral-review-1.8.0.md).
 This is a limited check, not an automatically scored model evaluation or proof of
 real relationship or sales results. Historical records remain available for
-[v1.6.0](tests/behavioral-review-1.6.0.md) and [v1.5.0](tests/behavioral-review-1.5.0.md).
+[v1.7.0](tests/behavioral-review-1.7.0.md), [v1.6.0](tests/behavioral-review-1.6.0.md) and [v1.5.0](tests/behavioral-review-1.5.0.md).
 
 `tests/linter_cases.json` contains safe and unsafe near-boundary examples. They verify that the message linter catches pressure and unsupported claims without treating cautious wording such as “不能保证” as a promise. The scenario contracts in `tests/cases.json` are evaluation fixtures, not proof that every model response is correct.
 

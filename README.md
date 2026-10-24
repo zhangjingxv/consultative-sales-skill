@@ -2,7 +2,7 @@
 
 [中文](README.md) | [English](README.en.md)
 
-**v1.7.0：一个 Skill 包，同时支持中文和英文。** 顶部链接切换 GitHub 说明文档；不会保存语言偏好，也不会改变 Skill 的实际输出语言。
+**v1.8.0：一个 Skill 包，同时支持中文和英文。** 顶部链接切换 GitHub 说明文档；不会保存语言偏好，也不会改变 Skill 的实际输出语言。
 
 面向 B2B 与项目型销售，帮助你成为理解客户、值得长期信赖的合作伙伴，让合适的产品匹配真实需求。
 
@@ -29,10 +29,13 @@
 
 内含 M01–M26 共 26 条原创方法，每条都有触发条件、动作、停止线与反例。它们是沟通判断工具，不是成交率、心理学规律或技术可行性的证明。
 
+本版深化聊天方式：分清分享、提问、感受与边界；回应具体内容、贡献真实信息；被纠正后更新判断。取消每轮必须复述、追问或给建议的机械要求。这里的迭代是改进 Skill 指令、案例与验证，不是模型权重微调，也不表示资料已全部吃透。
+
 ## 主要参考模块
 
 | 模块 | 用途 |
 |---|---|
+| [聊天底层](skills/consultative-sales-communication/references/conversation-foundations.md) | 听懂本轮需要、具体接话、双向表达、适度肯定、通俗解释及误解修复 |
 | [客户背景与话题](skills/consultative-sales-communication/references/customer-context.md) | 理解客户处境、顾虑与偏好，从可见事实自然回应，保留来源和日期，不从社交内容猜测购买意愿 |
 | [了解与信任](skills/consultative-sales-communication/references/ethics-and-trust.md) | 听懂并允许纠正，按偏好合作、兑现承诺与修复失约，不把熟悉程度当信任 |
 | [项目与成交推进](skills/consultative-sales-communication/references/deal-progress.md) | 理清 ICT 交易链、当前阻塞和关闭条件，条件确认后提出下单等具体动作 |
@@ -144,6 +147,6 @@ python3 -m unittest discover -s tests -v
 
 校验覆盖包结构、链接、双语规则与判定口径、安装迁移和文案风险检查。测试通过不证明所有模型回答正确或真实销售效果。
 
-本版 5 个原创合成场景的独立代理实际回复及协调代理复核见 [v1.7.0 行为抽查](tests/behavioral-review-1.7.0.md)。这是有限行为抽查，不是自动评分的模型评测或真实关系、销售效果证明。历史记录保留在 [v1.6.0](tests/behavioral-review-1.6.0.md) 和 [v1.5.0](tests/behavioral-review-1.5.0.md)。
+本版 6 个原创合成场景的独立代理实际回复及协调代理复核见 [v1.8.0 行为抽查](tests/behavioral-review-1.8.0.md)。这是有限行为抽查，不是自动评分的模型评测或真实关系、销售效果证明。历史记录保留在 [v1.7.0](tests/behavioral-review-1.7.0.md)、[v1.6.0](tests/behavioral-review-1.6.0.md) 和 [v1.5.0](tests/behavioral-review-1.5.0.md)。
 
 贡献约定见 [CONTRIBUTING.md](CONTRIBUTING.md)。许可证为 [MIT](LICENSE)。

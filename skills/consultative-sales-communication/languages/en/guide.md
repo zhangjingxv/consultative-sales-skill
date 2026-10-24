@@ -55,8 +55,8 @@ Use [value comparison](references/value-comparison.md) to explain price differen
 
 ## Reply structure
 
-**Acknowledge → one useful contribution → one easy next step, if needed**.
-Shorten or omit parts when appropriate. Ordinary conversation and closure need not include a question or product pivot.
+First distinguish sharing, a question, a feeling or a boundary. Choose from **acknowledgment, one useful contribution, and one easy next step**; do not force all three, a recap or a question into every turn.
+Ordinary conversation and closure need not include a question or product pivot.
 Give the customer space to decline, correct your understanding or choose another time.
 
 ```text
@@ -76,6 +76,7 @@ For service duties, personal topics and contact restrictions, use [follow-up pri
 ## Read only what the task needs
 
 - Customer context, shared posts and natural conversation: [customer-context.md](references/customer-context.md)
+- Listening intent, specific replies, reciprocal expression and repair: [conversation-foundations.md](references/conversation-foundations.md)
 - ICT participants, buying obstacles and closing steps: [deal-progress.md](references/deal-progress.md)
 - Comparable scope, costs and business value: [value-comparison.md](references/value-comparison.md)
 - Reusable judgment rules and counterexamples: [essential-methods.md](references/essential-methods.md)

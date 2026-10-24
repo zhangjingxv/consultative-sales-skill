@@ -59,7 +59,7 @@ GitHub 的「中文 / English」链接只切换说明文档，不保存输出语
 
 ## 组织话术
 
-优先使用三段式，并按场景删减：
+先分清本轮是在分享、提问、表达感受还是设边界；再从以下部件选择，不必每轮凑齐、复述或追问：
 
 1. **接住**：准确回应客户刚表达的事实或顾虑。
 2. **加值**：只补一项与当前顾虑直接相关的信息、证据或选择。
@@ -83,6 +83,7 @@ GitHub 的「中文 / English」链接只切换说明文档，不保存输出语
 ## 按需读取
 
 - 客户背景、朋友圈话题、自然联系与私有客户记录：[customer-context.md](references/customer-context.md)
+- 听懂本轮意图、具体接话、双向表达与修复误解：[conversation-foundations.md](references/conversation-foundations.md)
 - ICT 参与方、采购阻塞、成交下一步和售后复购：[deal-progress.md](references/deal-progress.md)
 - 同口径方案、成本和业务价值表达：[value-comparison.md](references/value-comparison.md)
 - 原创精华、触发条件、停止线与反例：[essential-methods.md](references/essential-methods.md)

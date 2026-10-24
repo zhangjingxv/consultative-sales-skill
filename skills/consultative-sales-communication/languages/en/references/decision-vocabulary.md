@@ -8,6 +8,18 @@ The `required` and `forbidden` fields are behavior assertions awaiting execution
 JSON parsing and vocabulary audits do not execute them; actual model replies need separate
 evaluation and recorded evidence before any behavioral pass can be claimed.
 
+### acknowledge_and_own_action
+- Use when: an existing issue needs owned follow-through, or a correction provides enough information to select a verification action, with no confirmed update time yet.
+- Observable behavior: acknowledge the issue or misunderstanding, reuse known information, and offer a specific action within the user's responsibility; stop acting on the replaced assumption.
+- Counterexample: comfort without fulfilling duties, requesting known details again, or admitting an error without changing the action.
+- Boundary: never invent authority, service scope, repair time or completed execution; existing update commitments still apply.
+
+### answer_with_evidence_limits
+- Use when: a concept can be explained now or the customer makes an unverified performance inference, without actual measurements.
+- Observable behavior: answer directly in plain language, separate principles, conditions and unknowns, and explain needed verification; analogies aid understanding only.
+- Counterexample: evade an answer with questions, treat an analogy as a benchmark, or use jargon to hide uncertainty.
+- Boundary: never invent measurements, compatibility conclusions, returns or a definite improvement magnitude.
+
 ### acknowledge_and_own_next_checkpoint
 - Observable behavior: acknowledge the stated fact and own a feasible update checkpoint.
 - Counterexample: a bare “received” or an unverified outcome/resolution promise.
