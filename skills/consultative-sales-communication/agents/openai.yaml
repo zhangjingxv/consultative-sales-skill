@@ -1,4 +1,4 @@
 interface:
-  display_name: "销售沟通教练 / Sales Coach"
-  short_description: "中英文 B2B 销售沟通 / Chinese & English B2B sales coaching"
-  default_prompt: "使用 $consultative-sales-communication 判断这轮客户沟通该推进、澄清、等待还是结束，并给我一版可直接发送的话。"
+  display_name: "销售沟通助手 / Sales Assistant"
+  short_description: "了解客户、自然建立关系并推进成交 / B2B relationships and sales"
+  default_prompt: "使用 $consultative-sales-communication 结合客户背景和当前业务，帮我找到自然的话题或可落实的成交下一步，并写好这轮消息。"

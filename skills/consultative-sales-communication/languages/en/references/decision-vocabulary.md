@@ -4,6 +4,9 @@ These labels describe actions, not certainty about customer intent. Match observ
 behavior and check the counterexample. The behavior assertions in the scenario fixtures
 still require contextual evaluation; defining labels alone does not validate a reply.
 All labels follow the entrypoint's evidence, consent and commercial boundaries.
+The `required` and `forbidden` fields are behavior assertions awaiting execution, not results.
+JSON parsing and vocabulary audits do not execute them; actual model replies need separate
+evaluation and recorded evidence before any behavioral pass can be claimed.
 
 ### acknowledge_and_own_next_checkpoint
 - Observable behavior: acknowledge the stated fact and own a feasible update checkpoint.
@@ -26,11 +29,11 @@ All labels follow the entrypoint's evidence, consent and commercial boundaries.
 - Counterexample: issue an unverified configuration, quote or delivery commitment in chat.
 
 ### clarify_basis
-- Observable behavior: ask about the comparison scope, benchmark, quantity or timing.
-- Counterexample: immediately argue, disparage competitors or discount.
+- Observable behavior: state the known comparison scope and assumptions, then clarify one decisive benchmark or cost input; accurately calculate any subtotal already supported by the inputs.
+- Counterexample: immediately argue, disparage competitors or discount; treat omitted costs as zero, assumed labor value as cash savings, or incomplete inputs as proof of complete TCO, payback or returns.
 
 ### clarify_one_fact
-- Observable behavior: ask one fact whose answer changes the next decision.
+- Observable behavior: clarify or request one fact that changes the next decision. If customer content is inaccessible, state the access limit and request one user-selected excerpt.
 - Counterexample: a questionnaire or using questions to evade an answer already supported by evidence.
 
 ### clarify_review_criterion_or_node
@@ -42,12 +45,12 @@ All labels follow the entrypoint's evidence, consent and commercial boundaries.
 - Counterexample: unconditional safety/compliance reassurance without evidence.
 
 ### close
-- Observable behavior: close briefly; preserve an entry point only if welcome and useful.
-- Counterexample: append a new pitch/question or invite contact after an explicit no-contact boundary.
+- Observable behavior: close briefly; preserve an entry point only if welcome and useful. If an all-contact boundary was already acknowledged and no obligation remains, stop silently without another farewell.
+- Counterexample: append a new pitch/question, invite contact after an explicit no-contact boundary, or bypass it through comments, reactions or another account.
 
 ### close_or_wait
-- Observable behavior: close or wait when only politeness is observed and no next step exists.
-- Counterexample: convert a polite response into buying interest or force a meeting.
+- Observable behavior: stop business chasing or sales-meeting requests when only politeness is observed and no buying next step exists; close or wait without prohibiting genuine, appropriate and unrestricted social conversation.
+- Counterexample: convert a polite response into buying interest, force a meeting, or refuse to respond to a voluntarily shared interest solely because no lead exists.
 
 ### confirm_and_route
 - Observable behavior: acknowledge the specific requirements, own a feasible next update and use the project workflow.
@@ -56,6 +59,10 @@ All labels follow the entrypoint's evidence, consent and commercial boundaries.
 ### confirm_logistics
 - Observable behavior: confirm agreed time, location/access and participants coherently.
 - Counterexample: repeated fragmented requests or treating changes as accepted without agreement.
+
+### confirm_purchase_next_step
+- Observable behavior: when the necessary technical, commercial and purchasing conditions are confirmed and the customer explicitly wants to buy, use those terms to propose one specific action for the authorized person, such as a purchase request or purchase order, and state the seller's supporting task. Distinguish a proposed step from a completed order.
+- Counterexample: repeat completed discovery, wait indefinitely, treat interest or silence as an order, or submit, sign, ship, invent approval or add unconfirmed conditions without authority.
 
 ### explore_backup_only
 - Observable behavior: respect the existing supplier and explore one backup trigger if appropriate.
@@ -72,6 +79,10 @@ All labels follow the entrypoint's evidence, consent and commercial boundaries.
 ### map_remaining_decision_path
 - Observable behavior: summarize known participants and ask which remaining steps need confirmation.
 - Counterexample: assume only one approval remains or speculate about internal politics.
+
+### natural_relationship_reply
+- Observable behavior: respond naturally to a concrete, time-grounded detail voluntarily shared by the customer or appropriate to the existing relationship, without an applicable contact prohibition. A greeting, congratulations or curiosity need not include a question or business transition. Honor welcome interest conversation separately from a marketing opt-out.
+- Counterexample: invent a shared experience, append a product or buying request to every exchange, infer purchase intent from hobby enthusiasm, describe an old post as current, bypass an all-contact boundary socially, or claim to have read inaccessible content.
 
 ### recap_commitments
 - Observable behavior: recap agreed owners, actions and dates plus a checkpoint.
@@ -107,6 +118,6 @@ All labels follow the entrypoint's evidence, consent and commercial boundaries.
 - Counterexample: treat a requested discount as seller approval, confuse missing seller permission with missing buyer authority, or encourage either party to overcommit.
 
 ### wait
-- Observable behavior: stop advancing when asked to slow down or when there is no new value, due commitment or required service update. Acknowledge a live message only if needed; do not send another acknowledgment into silence. Retain only agreed or explicitly authorized recontact conditions.
-- Counterexample: resume the sales pitch the next day or through another channel.
+- Observable behavior: stop business chasing when asked to slow down or when there is no new business basis, due commitment or required service update. Acknowledge a live message only if needed; do not send another acknowledgment into silence. Retain only agreed or explicitly authorized business recontact conditions. Handle genuine, appropriate and unrestricted social conversation separately.
+- Counterexample: resume the same sales chase the next day, bypass a restriction through another channel, or prohibit ordinary interest conversation solely because no purchasing information exists.
   Necessary safety, correction, risk and service updates continue under existing duties.

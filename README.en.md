@@ -1,35 +1,52 @@
-# Consultative Sales Skill
+# Sales Communication Assistant Skill
 
 [中文](README.md) | [English](README.en.md)
 
-An evidence-aware sales communication skill for Codex and other agent runtimes that support `SKILL.md` packages.
+Help sell a suitable product and build a relationship the customer wants to maintain.
+This bilingual B2B sales assistant works with Codex and other runtimes that support `SKILL.md` packages.
 
-**v1.5.0 — One skill, Chinese and English.** The unified package includes 26 operational
+**v1.6.0 — One skill, Chinese and English.** The unified package includes 26 operational
 judgment rules with triggers, stop lines and counterexamples. They are communication
 guidance, not claims of guaranteed conversion or psychological laws.
 
-Assess the customer's signals and conversation stage before deciding whether to
-advance, clarify, wait or close. Draft natural, concise replies rather than generic sales scripts.
+Understand the person and business, find natural conversation topics, explain value,
+and resolve buying obstacles. When the buying conditions are confirmed, propose a
+specific purchase request, order confirmation, or other appropriate next step.
+
+The default is practical help with the conversation at hand. A social exchange can
+end with genuine interest or congratulations; it does not need a product pitch.
+Actual customer feedback informs the next action; relationship and deal outcomes stay separate.
 
 The language links above switch this GitHub documentation only. They do not save
 a language preference or change the skill's output language.
 
-## What's improved
+## New in v1.6.0
 
-- Match direct replies, draft edits and practice to the user's request; load only needed references.
-- Omit a customer-facing draft when waiting. Respect contact restrictions while honoring existing service duties and agreed updates.
-- Distinguish seller discount approval from buyer purchasing authority.
-- Check English, Chinese and mixed-language drafts, with matched spans and one finding per rule.
+| Module | Purpose |
+|---|---|
+| [Customer context](skills/consultative-sales-communication/languages/en/references/customer-context.md) | Choose natural topics from available facts, retain sources and dates, and avoid inferring buying intent from social posts |
+| [Deal progress](skills/consultative-sales-communication/languages/en/references/deal-progress.md) | Map ICT buying roles, define the present blocker and closure evidence, then ask for a concrete purchasing action |
+| [Value comparison](skills/consultative-sales-communication/languages/en/references/value-comparison.md) | Align scope, use checkable cost formulas and explicit assumptions, and distinguish labor-cost equivalents from cash savings |
+
+All three modules have Chinese counterparts in the same package. Selective reference
+loading, factual checks, contact boundaries, service obligations, and bilingual draft checking remain supported.
+
+For WeChat Moments and similar customer posts, use material the user supplies, or
+material they explicitly authorize and the current tools can actually read. This version
+does not implement automatic reading, monitoring, or scraping of Moments. It must not
+claim to have seen content it has not read.
 
 ## What it does
 
-- Diagnoses customer engagement without mistaking politeness for purchase intent.
-- Selects one objective and one response entry point per conversation turn.
+- Uses available customer context to find a topic appropriate to the relationship.
+- Assesses customer engagement without mistaking politeness for purchase intent.
+- Selects one objective and at most one response entry point per turn; social exchanges may need no question or request.
 - Drafts concise messages for chat, calls, meetings, objections, and follow-ups.
 - Separates confirmed facts, seller assumptions, and unknown information.
 - Applies evidence gates to price, inventory, compatibility, delivery, and other commercial claims.
 - Stops pressure after explicit rejection or repeated weak responses.
-- Supports coaching mode so users learn the judgment process instead of relying only on generated copy.
+- Explains comparable value and asks for a purchasing step when the necessary conditions are confirmed.
+- Uses actual customer feedback to improve the next action and tracks relationship and deal outcomes separately.
 - Synthesizes long customer answers before proposing a solution or asking another question.
 - Separates one contact's support from the buying organization's technical, commercial, budget, and approval path.
 - Separates the seller's own urge to follow up from an actual reason to contact the customer.
@@ -48,7 +65,7 @@ The default message shape is:
 Acknowledge → Add one useful value → Leave one easy next step
 ```
 
-Either part may be omitted when the situation calls for a shorter response. Explicit rejection should normally lead to acknowledgment and closure.
+Any part may be omitted when the situation calls for a shorter response. Social exchanges need not turn into a pitch. Explicit rejection should normally lead to acknowledgment and closure of the rejected outreach.
 
 ## Install
 
@@ -117,7 +134,13 @@ Unknowns: ...
 When the user asks for a short answer, the skill returns only the decision and a reply if one is needed.
 For silent waiting, it says “Do not send this turn” and omits the draft.
 
-Try: “Edit this draft while keeping my voice,” or “Play the customer and let me practice discovery before giving feedback.”
+Try:
+
+```text
+Natural contact: The customer posted about finishing a half marathon. We have talked about running before. Help me congratulate them without a product pitch.
+Deal progress: The configuration and service scope are confirmed, but the customer has not ordered. Help me propose one concrete purchasing step.
+Draft editing: Keep my voice and fix the most important problem in this message.
+```
 
 From the installed skill directory, check a draft using a file or standard input:
 
@@ -125,8 +148,9 @@ From the installed skill directory, check a draft using a file or standard input
 python3 scripts/message_lint.py --file /path/to/customer-message.txt
 ```
 
-`ok` means no implemented rule matched. The checker does not verify prices, stock,
-compatibility or authority online; review its findings in the conversation's context.
+`ok` means no implemented rule matched. `matches` provides matched text and locations;
+`scope` identifies the heuristic checking boundary. The checker does not verify prices,
+stock, compatibility or authority online; review its findings in the conversation's context.
 
 ## Repository layout
 
@@ -164,18 +188,25 @@ Do not contribute:
 
 Use synthetic or fully anonymized cases when contributing tests.
 
+A visible social post is not necessarily public material. Keep real customer screenshots,
+conversations, and records within the user's designated private scope, outside this public
+package. Do not enumerate friends or use a social topic to bypass a no-contact request.
+
 ## Validate
 
 ```bash
 python3 scripts/audit_public_tree.py
 python3 scripts/validate_skill.py
+python3 scripts/audit_case_vocabulary.py
 python3 -m unittest discover -s tests -v
 ```
 
 The local release process additionally runs the official Codex `quick_validate.py` script when it is available.
 
-Six original synthetic scenarios were also tried by an independent agent for this release;
-see the observed results and limits in the [behavioral spot-check record](tests/behavioral-review-1.5.0.md).
+An independent agent's actual answers to eight original synthetic requests, reviewed
+by the coordinating agent, are in the [v1.6.0 behavioral spot check](tests/behavioral-review-1.6.0.md).
+This is not an automatically scored model evaluation or proof of real sales results.
+The [v1.5.0 historical record](tests/behavioral-review-1.5.0.md) is also retained.
 
 `tests/linter_cases.json` contains safe and unsafe near-boundary examples. They verify that the message linter catches pressure and unsupported claims without treating cautious wording such as “不能保证” as a promise. The scenario contracts in `tests/cases.json` are evaluation fixtures, not proof that every model response is correct.
 

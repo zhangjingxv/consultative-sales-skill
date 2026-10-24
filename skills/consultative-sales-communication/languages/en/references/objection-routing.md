@@ -14,9 +14,11 @@ checkpoints; an explicit boundary needs respect.
 | We have a supplier | Respect that relationship; consider backup use only if invited |
 | Not my responsibility | Clarify role and a voluntary introduction path |
 | Delivery won't work | Confirm the hard requirement and verify options; do not promise feasibility |
-| No reply | Wait unless there is new value or an agreed checkpoint |
+| No reply to sales follow-up | Pause sales chasing unless there is new value, an agreed checkpoint or a necessary service update |
 
 Do not assign a follow-up date unilaterally when the customer is busy.
 Do not attack competitors, instantly discount, or make up urgency.
 Stop if continuing requires invented facts, unauthorized commitments or bypassing procurement.
 Repeated weak responses do not cancel existing service/delivery duties.
+These rules do not ban mutually welcome ordinary conversation: see
+[customer context](customer-context.md). Do not use it to reopen rejected marketing.

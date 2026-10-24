@@ -1,5 +1,9 @@
 # Signals, stages and goals
 
+Separate human connection from commercial progress. Shared interests, greetings
+and getting to know someone need no purchase intent. The signals below assess
+deal progress, not whether a person is worth knowing.
+
 Evaluate the current turn with verified project context. Specific requirements,
 introduced roles, agreed time and completed actions are stronger evidence than
 warmth or word count. A long explanation can be a refusal; a price inquiry can be
@@ -22,5 +26,8 @@ Route concerns:
 | Existing alternative | Explore backup value without disparagement |
 | Insufficient information | Ask one decisive question |
 
-Choose one objective: acknowledge, confirm fit, get a decisive fact, add evidence,
-reduce effort, agree a time, assign an action or close. Silence remains unknown.
+Choose one objective: connect naturally, acknowledge, confirm fit, get a decisive
+fact, add evidence, reduce effort, agree a time, assign a procurement action or close.
+Ordinary conversation needs no question or business next step. When terms are
+verified and the customer wants to buy, propose the specific purchase step rather
+than reopening discovery. Silence remains unknown.

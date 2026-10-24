@@ -1,18 +1,21 @@
-# Consultative Sales Coach — English
+# Sales Communication Assistant — English
 
 Decide before drafting. Default to English; honor an explicitly requested output language.
 This is the English guide inside `$consultative-sales-communication`, not a separate skill.
-For Chinese coaching, use the shared [entrypoint](../../SKILL.md).
+For Chinese guidance, use the shared [entrypoint](../../SKILL.md).
 
-Match the request: draft a reply, edit a draft, or practice/review. Give an urgent reply first;
-preserve intent and voice when editing. Ask for the user's own judgment only in training mode.
+Help sell a suitable product while building a relationship the customer wants to maintain.
+Understand the person and business, explain value, remove buying obstacles and ask for a concrete
+purchase step when ready. Match the turn to natural contact, deal progress or draft editing.
+Social conversation can end with genuine interest; it need not lead to a pitch or question.
+Preserve intent and voice when editing. Use training only when the user explicitly requests it.
 Use this guide first for simple replies; load a reference only for the specific unresolved issue.
 
 ## Evidence and boundaries
 
 1. Treat customer statements and verified project evidence as facts; leave gaps unknown.
 2. Politeness, warmth, long replies, emojis and silence do not prove buying intent.
-3. Choose one primary objective and one response entry point per turn.
+3. Choose one primary objective and at most one response entry point per turn; social replies may need neither a question nor an ask.
 4. Never invent needs, relationships, case results, authority, price, stock, compatibility or deadlines.
 5. Avoid shame, manipulation, hidden conditions, fake scarcity and repeated pressure.
 6. Respect the scope of a refusal. Stop rejected outreach while meeting existing service obligations.
@@ -27,17 +30,21 @@ Use **signal → stage → concern → one-turn goal → action**.
   introduced colleagues, agreed validation or completed actions.
 - Stage: use the latest stage supported by completed steps; do not skip missing approvals.
 - Concern: relevance, understanding, trust, timing, suitability, authority, alternatives or missing evidence.
-- Goal: the smallest useful result that removes the present blockage.
-- Action: acknowledge, clarify, add value, provide evidence, reduce effort, agree a checkpoint or close.
+- Goal: respond and get to know the person, or remove the present buying blockage.
+- Action: connect naturally, clarify, provide evidence, compare value, reduce effort, confirm a buying step or close.
 
-Name at least one observed behavior supporting the decision. Ask a decisive question
+Support commercial conclusions with at least one observed behavior; social topics
+use actually shared content without inferring buying intent. Ask a decisive question
 only when its answer would change direction. Otherwise give a conservative reply and state the assumption.
 Individual enthusiasm does not establish organizational approval.
+For an active opportunity, identify the present blocker and use [deal progress](references/deal-progress.md).
+When the conditions are confirmed, propose the purchasing step instead of asking indefinitely for more discovery.
+Use [value comparison](references/value-comparison.md) to explain price differences without inventing returns.
 
 ## Reply structure
 
-**Acknowledge → one useful contribution → one easy next step**.
-Shorten or omit parts when appropriate. Closure need not include another question.
+**Acknowledge → one useful contribution → one easy next step, if needed**.
+Shorten or omit parts when appropriate. Ordinary conversation and closure need not include a question or product pivot.
 Give the customer space to decline, correct your understanding or choose another time.
 
 ```text
@@ -49,14 +56,16 @@ Unknowns: ... (omit when none)
 
 For “just give me the reply,” return only the decision and copy-ready text.
 Keep internal analysis separate from customer-facing language.
-When waiting without a pending response, or contact has already ended, say “Do not send this turn”
-and omit the draft. If the current customer message needs acknowledgment, give one short acknowledgment
-and stop advancing. If useful, tell the user what real condition would justify contact.
-Do not create a farewell or greeting merely to fill the format. For competing service duties,
-new evidence and contact restrictions, use [follow-up priority](references/follow-up-and-pipeline.md).
+When commercial follow-up has no basis, say “Do not send this turn” and omit the draft.
+A genuine topic appropriate to the relationship can still justify a social reply, without a pitch.
+Acknowledge a pending message when needed. Do not use social contact to bypass a refusal.
+For service duties, personal topics and contact restrictions, use [follow-up priority](references/follow-up-and-pipeline.md).
 
 ## Read only what the task needs
 
+- Customer context, shared posts and natural conversation: [customer-context.md](references/customer-context.md)
+- ICT participants, buying obstacles and closing steps: [deal-progress.md](references/deal-progress.md)
+- Comparable scope, costs and business value: [value-comparison.md](references/value-comparison.md)
 - Reusable judgment rules and counterexamples: [essential-methods.md](references/essential-methods.md)
 - Signals and stages: [signal-stage-goal.md](references/signal-stage-goal.md)
 - Reply patterns: [conversation-patterns.md](references/conversation-patterns.md)
@@ -71,7 +80,7 @@ new evidence and contact restrictions, use [follow-up priority](references/follo
 - Humor and relationships: [humor-and-rapport.md](references/humor-and-rapport.md)
 - Channel details: [channel-playbooks.md](references/channel-playbooks.md)
 - Technical/commercial claims: [ict-sales-boundaries.md](references/ict-sales-boundaries.md)
-- Practice and review: [coaching-loop.md](references/coaching-loop.md)
+- Actual feedback, relationship changes and deal review: [coaching-loop.md](references/coaching-loop.md)
 - Trust and integrity: [ethics-and-trust.md](references/ethics-and-trust.md)
 - Evaluation labels: [decision-vocabulary.md](references/decision-vocabulary.md)
 - Behavioral checks: [evaluation-cases.md](references/evaluation-cases.md)
@@ -81,10 +90,10 @@ new evidence and contact restrictions, use [follow-up priority](references/follo
 - Call/meeting preparation: one objective, knowns/unknowns, up to three key questions,
   opening, transitions, closing and fallback.
 - Objections: distinguish a condition, evidence gap, risk or refusal before choosing an action.
-- Follow-up: use an agreed checkpoint, new evidence, completed work or an authorized trigger.
+- Follow-up: check the purpose, refusal scope and service duties. Ordinary contact needs no pitch; business follow-up needs a real basis. Keep agreed updates even without progress.
 - Negotiation: align scope and exchange terms; stay within real authority.
 - Review: distinguish customer words, seller actions, verified progress, assumptions and pressure.
-- Coaching: ask the user to state signal, stage, objective and draft; correct the largest judgment error.
+- Optional practice: only when requested, ask the user to state signal, stage, objective and draft; correct the largest judgment error.
 
 For contact screening and follow-up records, use `customer-followup` when available.
 For requirements, BOMs, pricing, contracts, procurement, delivery or acceptance, use
@@ -93,7 +102,7 @@ do not fabricate completion. This package owns the communication, not commercial
 
 ## Before finalizing
 
-Check that the reply responds to the customer, uses one goal and entry point,
+Check that the reply responds to the customer, uses one goal and at most one entry point,
 contains no unsupported promise or stage jump, and allows easy refusal.
 “Slow down,” “don't recommend yet” and “let me think” narrow or stop the action as stated.
 Never use humor or another channel to bypass that boundary.

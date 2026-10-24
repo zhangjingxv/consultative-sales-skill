@@ -33,7 +33,7 @@ not a script checklist or evidence of buying intent, technical feasibility or ef
 |---|---|---|
 | M15 Role path | Identify users, technical, procurement, budget and approval steps; preserve unknown roles. | Helpfulness does not prove authority; do not bypass or demand overreach. |
 | M16 Mutual actions | Record only agreed actions, owners, dates and completion evidence. | Discussion, intention and completion differ; do not commit on the customer's behalf. |
-| M17 Value-triggered follow-up | Contact at agreed checkpoints, new evidence, completed work or necessary risk updates. | Elapsed time is not value; marketing withdrawal does not cancel service updates. |
+| M17 Value-triggered follow-up | Business follow-up uses agreed checkpoints, new evidence, completed work or necessary risk updates. | Elapsed time is not value; ordinary conversation need not become business; marketing withdrawal does not cancel service updates. |
 | M18 Self-regulation | Check whether the urge to send comes from anxiety, ego or appeasement; pause and return to facts. | Do not punish, deliberately ignore the customer or withhold owed service. |
 | M19 Empathy with action | Acknowledge stated impact, then offer a checkpoint you can own. | Do not diagnose motives, lead with excuses or confuse an update with resolution. |
 | M20 Light humor | In an already relaxed, mutually comfortable exchange, add at most one relevant observation. | Laughter is not permission; complaints, risk and missed commitments need accuracy. |
@@ -46,7 +46,7 @@ not a script checklist or evidence of buying intent, technical feasibility or ef
 |---|---|---|
 | M23 Respectful comparison | Align the shared goal, then explain verified differences, trade-offs and applicability. | Do not disparage people or competitors; preserve choice without judging character. |
 | M24 Bounded cases | State context, constraints, action, measured result and limits on extrapolation. | No unauthorized identities; anecdotes are not causal laws or success-rate evidence. |
-| M25 Feedback practice | Record prediction, actual response and subsequent action; separate judgment and wording errors. | Without business results, mark unknown; one correct prediction is not a universal rule. |
+| M25 Actual feedback | Improve the next step using actual replies and actions; separate relationship changes from business results. | Never invent customer reactions; missing results remain unknown; one sale is not a universal rule. |
 | M26 Mutual exit | If a mandatory constraint cannot be met, explain the gap and exit the option or refer honestly. | Exit is not punishment; orders, service and correction duties remain. |
 
 ## Useful combinations
