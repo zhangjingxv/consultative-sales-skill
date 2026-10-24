@@ -1,17 +1,26 @@
-# Sales Communication Assistant Skill
+# Customer Relationships and Sales Assistant Skill
 
 [中文](README.md) | [English](README.en.md)
 
-Help sell a suitable product and build a relationship the customer wants to maintain.
+Become a partner who understands the customer and earns lasting trust, matching suitable products to real needs.
 This bilingual B2B sales assistant works with Codex and other runtimes that support `SKILL.md` packages.
 
-**v1.6.0 — One skill, Chinese and English.** The unified package includes 26 operational
+**v1.7.0 — One skill, Chinese and English.** The unified package includes 26 operational
 judgment rules with triggers, stop lines and counterexamples. They are communication
 guidance, not claims of guaranteed conversion or psychological laws.
 
-Understand the person and business, find natural conversation topics, explain value,
-and resolve buying obstacles. When the buying conditions are confirmed, propose a
-specific purchase request, order confirmation, or other appropriate next step.
+| Core objective | What to establish or do |
+|---|---|
+| Product value | Explain which problems the product can solve, the conditions where it fits, and its limits |
+| Real need | Establish whether the customer actually has a relevant requirement, including their goals, constraints, and priorities |
+| Trust: understanding and follow-through | Understand their working circumstances, genuine concerns, communication preferences, and voluntarily shared interests; consistently deliver on commitments |
+
+Assess these objectives separately. Familiarity and purchase probability do not establish
+trust, and a good relationship does not establish product fit. Understanding someone goes
+beyond finding social-post topics or assigning profile scores. Do not force conversations
+into demand discovery. Stay in touch naturally when there is no current need, explain a
+mismatch honestly, and propose a specific purchasing step when need, fit, and buying
+conditions are confirmed.
 
 The default is practical help with the conversation at hand. A social exchange can
 end with genuine interest or congratulations; it does not need a product pitch.
@@ -20,15 +29,16 @@ Actual customer feedback informs the next action; relationship and deal outcomes
 The language links above switch this GitHub documentation only. They do not save
 a language preference or change the skill's output language.
 
-## New in v1.6.0
+## Main reference modules
 
 | Module | Purpose |
 |---|---|
-| [Customer context](skills/consultative-sales-communication/languages/en/references/customer-context.md) | Choose natural topics from available facts, retain sources and dates, and avoid inferring buying intent from social posts |
+| [Customer context](skills/consultative-sales-communication/languages/en/references/customer-context.md) | Understand circumstances, concerns, and preferences; respond naturally to available facts, retain sources and dates, and avoid inferring buying intent from social posts |
+| [Understanding and trust](skills/consultative-sales-communication/languages/en/references/ethics-and-trust.md) | Listen and welcome correction, respect preferences, keep commitments and repair missed ones; familiarity does not establish trust |
 | [Deal progress](skills/consultative-sales-communication/languages/en/references/deal-progress.md) | Map ICT buying roles, define the present blocker and closure evidence, then ask for a concrete purchasing action |
 | [Value comparison](skills/consultative-sales-communication/languages/en/references/value-comparison.md) | Align scope, use checkable cost formulas and explicit assumptions, and distinguish labor-cost equivalents from cash savings |
 
-All three modules have Chinese counterparts in the same package. Selective reference
+These modules have Chinese counterparts in the same package. Selective reference
 loading, factual checks, contact boundaries, service obligations, and bilingual draft checking remain supported.
 
 For WeChat Moments and similar customer posts, use material the user supplies, or
@@ -38,7 +48,7 @@ claim to have seen content it has not read.
 
 ## What it does
 
-- Uses available customer context to find a topic appropriate to the relationship.
+- Uses available customer context to understand their circumstances, concerns, and preferences, respond appropriately, and follow through on commitments.
 - Assesses customer engagement without mistaking politeness for purchase intent.
 - Selects one objective and at most one response entry point per turn; social exchanges may need no question or request.
 - Drafts concise messages for chat, calls, meetings, objections, and follow-ups.
@@ -203,10 +213,11 @@ python3 -m unittest discover -s tests -v
 
 The local release process additionally runs the official Codex `quick_validate.py` script when it is available.
 
-An independent agent's actual answers to eight original synthetic requests, reviewed
-by the coordinating agent, are in the [v1.6.0 behavioral spot check](tests/behavioral-review-1.6.0.md).
-This is not an automatically scored model evaluation or proof of real sales results.
-The [v1.5.0 historical record](tests/behavioral-review-1.5.0.md) is also retained.
+An independent agent's actual replies to five original synthetic requests, reviewed
+by the coordinating agent, are in the [v1.7.0 behavioral spot check](tests/behavioral-review-1.7.0.md).
+This is a limited check, not an automatically scored model evaluation or proof of
+real relationship or sales results. Historical records remain available for
+[v1.6.0](tests/behavioral-review-1.6.0.md) and [v1.5.0](tests/behavioral-review-1.5.0.md).
 
 `tests/linter_cases.json` contains safe and unsafe near-boundary examples. They verify that the message linter catches pressure and unsupported claims without treating cautious wording such as “不能保证” as a promise. The scenario contracts in `tests/cases.json` are evaluation fixtures, not proof that every model response is correct.
 

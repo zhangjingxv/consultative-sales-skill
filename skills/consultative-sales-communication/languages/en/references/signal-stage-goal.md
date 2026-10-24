@@ -19,7 +19,7 @@ Route concerns:
 |---|---|
 | Irrelevant | Confirm the business boundary once, then exit |
 | Unclear value | Explain in the customer's language |
-| Low trust | Provide directly relevant verified evidence |
+| Low trust | Distinguish capability, misunderstanding and follow-through concerns; clarify understanding, provide relevant evidence or establish responsibility as needed; see [understanding and trust](ethics-and-trust.md) |
 | Not urgent | Identify a real trigger or defer |
 | Poor fit | Clarify the comparison and non-negotiable condition |
 | No authority | Identify the role and agreed introduction path |

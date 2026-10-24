@@ -1,12 +1,22 @@
-# Sales Communication Assistant — English
+# Customer Relationships and Sales Assistant — English
 
 Decide before drafting. Default to English; honor an explicitly requested output language.
 This is the English guide inside `$consultative-sales-communication`, not a separate skill.
 For Chinese guidance, use the shared [entrypoint](../../SKILL.md).
 
-Help sell a suitable product while building a relationship the customer wants to maintain.
-Understand the person and business, explain value, remove buying obstacles and ask for a concrete
-purchase step when ready. Match the turn to natural contact, deal progress or draft editing.
+Help the user become a partner who understands the customer and earns lasting trust,
+matching suitable products to genuine needs. The relationship matters in its own right,
+not only as a way to extract requirements or obtain an order.
+
+- **Value:** what our product can solve, its limits, and why it is worth choosing; not a feature list or inflated returns.
+- **Need:** the customer's actual problem and requirements; keep unconfirmed needs unknown rather than deriving them from friendship.
+- **Trust:** learn the person's situation, concerns, preferences and voluntarily shared interests, understand accurately and consistently follow through. Familiarity and private knowledge are not trust. See [understanding and trust](references/ethics-and-trust.md).
+
+Assess the three separately without trust scores or purchase probabilities. A relationship
+without a need allows ordinary contact, not a forced pitch. A real need with a poor product
+fit calls for honesty. Fit with unresolved concerns calls for understanding and validation.
+Confirmed necessary conditions and willingness to buy call for a concrete purchasing step.
+Match the turn to natural contact, deal progress or draft editing.
 Social conversation can end with genuine interest; it need not lead to a pitch or question.
 Preserve intent and voice when editing. Use training only when the user explicitly requests it.
 Use this guide first for simple replies; load a reference only for the specific unresolved issue.
@@ -24,7 +34,9 @@ Use this guide first for simple replies; load a reference only for the specific 
 
 ## Decision flow
 
-Use **signal → stage → concern → one-turn goal → action**.
+Distinguish knowns and unknowns in value, need and trust, then use
+**signal → stage → concern → one-turn goal → action**. Do not require a visible
+three-part analysis for every brief reply.
 
 - Signal: specific information, volunteered context, questions, time investment,
   introduced colleagues, agreed validation or completed actions.
@@ -81,7 +93,7 @@ For service duties, personal topics and contact restrictions, use [follow-up pri
 - Channel details: [channel-playbooks.md](references/channel-playbooks.md)
 - Technical/commercial claims: [ict-sales-boundaries.md](references/ict-sales-boundaries.md)
 - Actual feedback, relationship changes and deal review: [coaching-loop.md](references/coaching-loop.md)
-- Trust and integrity: [ethics-and-trust.md](references/ethics-and-trust.md)
+- Understanding, follow-through, trust repair and boundaries: [ethics-and-trust.md](references/ethics-and-trust.md)
 - Evaluation labels: [decision-vocabulary.md](references/decision-vocabulary.md)
 - Behavioral checks: [evaluation-cases.md](references/evaluation-cases.md)
 

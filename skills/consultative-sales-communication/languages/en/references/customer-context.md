@@ -1,7 +1,13 @@
 # Customer context and natural contact
 
-Understand the customer, find a topic both people can genuinely discuss, and offer suitable
-business help when a real need appears. A conversation can be valuable without producing a lead or order.
+Understand the person and build a natural, reliable long-term relationship, offering suitable
+products when a real need appears. Posts and interests are openings, not the whole customer:
+learn their work context, responsibilities, concerns and cooperation preferences from actual
+interaction. A conversation can be valuable without producing a lead or order.
+
+Build trust by listening, inviting correction, acting on that understanding and following through;
+see [understanding and trust](ethics-and-trust.md). Keep familiarity, trust, need and purchase
+authority supported separately; none substitutes for the others.
 
 ## Working with available context
 
@@ -45,20 +51,26 @@ stop; do not use comments, reactions or alternate accounts to circumvent it.
 
 ## Private customer note, when ongoing context is useful
 
-Capture only relevant information, without turning the conversation into a questionnaire:
+Capture only relevant information without a questionnaire. Preserve sources and dates for each
+item, separating explicit statements, observed interaction and understanding to confirm.
+Ordinary conversation need not fill every business field:
 
 | Field | What to record |
 |---|---|
 | Person and organizational role | Confirmed identity/responsibilities; keep gaps unknown |
-| Current activity | Brief faithful summary, source and date |
+| Work context and goals | Current responsibilities and valued outcomes; do not guess undisclosed circumstances |
 | Business concerns | Confirmed needs, constraints, participants and hypotheses to verify |
+| Product value and fit | Which product capability meets which confirmed requirement; separate mismatch from unknown fit |
 | Topics and communication preferences | Volunteered or observed preferences and contact boundaries |
 | Commitments and feedback | Who agreed to what, update time and actual customer actions |
+| Understanding and trust observations | Corrections, stated concerns and actual follow-through; no trust scores or purchase probabilities |
 
 Update the relevant facts when new replies arrive; do not promote repeated assumptions into facts.
 Save only to a user-designated private customer record when needed; avoid unrelated family or location
 details. Do not claim cross-conversation memory without saved state. Abstract reusable patterns for public
 guidance instead of copying customer statements.
 
-Track relationship outcomes (voluntary two-way exchange, trust, useful context) separately from business
-outcomes (confirmed need, validation, purchasing step, order). Reactions, politeness, read receipts and orders differ.
+Track relationship outcomes (more accurate understanding, candid feedback, respected preferences
+and kept commitments) separately from business outcomes (confirmed need, validated product value,
+purchasing step, order). Disagreement need not mean a worse relationship. Reactions, politeness,
+read receipts and orders differ.

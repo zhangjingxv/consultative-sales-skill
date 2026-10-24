@@ -47,6 +47,7 @@ evaluation and recorded evidence before any behavioral pass can be claimed.
 ### close
 - Observable behavior: close briefly; preserve an entry point only if welcome and useful. If an all-contact boundary was already acknowledged and no obligation remains, stop silently without another farewell.
 - Counterexample: append a new pitch/question, invite contact after an explicit no-contact boundary, or bypass it through comments, reactions or another account.
+  For a verified product mismatch, explain the gap and stop recommending that option, without ending ordinary contact or existing service duties. Unverified alternatives remain unknown.
 
 ### close_or_wait
 - Observable behavior: stop business chasing or sales-meeting requests when only politeness is observed and no buying next step exists; close or wait without prohibiting genuine, appropriate and unrestricted social conversation.

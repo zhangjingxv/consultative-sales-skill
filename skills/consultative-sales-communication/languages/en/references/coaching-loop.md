@@ -10,6 +10,10 @@ and reciprocal conversation can indicate comfort, not an order. Procurement
 progress needs evidence such as confirmed requirements, completed review, an
 accepted purchase request, an order or payment.
 
+Review validated product value, confirmed need, accuracy of understanding and kept
+commitments separately. Chat frequency, compliance or an absent order do not establish
+the level of trust. Update understanding when the customer corrects it.
+
 Record the purpose (ordinary contact/business), supplied facts with source/date,
 verified context, prediction, seller action, actual reply and subsequent action,
 observed relationship change, evidenced deal progress (or unchanged/unknown),

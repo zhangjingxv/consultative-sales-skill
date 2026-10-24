@@ -1,4 +1,4 @@
 interface:
-  display_name: "销售沟通助手 / Sales Assistant"
-  short_description: "了解客户、自然建立关系并推进成交 / B2B relationships and sales"
-  default_prompt: "使用 $consultative-sales-communication 结合客户背景和当前业务，帮我找到自然的话题或可落实的成交下一步，并写好这轮消息。"
+  display_name: "客户关系与销售助手 / Relationship Sales"
+  short_description: "了解客户、建立信任，让产品匹配真实需求 / Trust-led B2B sales"
+  default_prompt: "使用 $consultative-sales-communication，从产品价值、真实需求和信任出发，帮我更了解客户、拉近关系，并选好本轮自然交流或采购下一步。"
